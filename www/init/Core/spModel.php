@@ -556,7 +556,8 @@ class spPager {
 		@list($conditions, $sort, $fields ) = $func_args;
 		if('findSql'==$func_name){
       $cur_count = $this->model_obj->findSql("SELECT COUNT({$this->model_obj->pk}) as sp_counter FROM ($conditions) sp_tmp_table_pager1");
-			$total_count = array_pop( array_pop( $cur_count ) );
+      $cur_count_last = array_pop( $cur_count );
+			$total_count = array_pop( $cur_count_last );
 		}else{
 			$total_count = $this->model_obj->findCount($conditions);
 		}
