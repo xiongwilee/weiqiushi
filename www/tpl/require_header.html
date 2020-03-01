@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <title>{if $titlepre}{$titlepre} -{/if} {$title} {$yb.site_title} - {$yb.site_titlepre}</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="{$yb.author}" />
+    <meta name="description" content="{$yb.site_desc}" />
+    <meta name="keywords" content="{if $titlepre}{$titlepre},{/if}{$yb.site_keyword}" />
+    <meta property="wb:webmaster" content="9fb98de0cb5cfd95" />
+    <link rel="shortcut icon" href="{$url}/tpl/image/favicon.ico" type="image/x-icon">
+	{include file="require_js.html"}
+</head>
+<body>
+<div id="uberbar">
+	<div id="top">
+	<div class="all">
+		<h1 id="logo">
+			<a title="{if $titlepre}{$titlepre} -{/if} {$yb.site_title} - {$yb.site_titlepre}" href="{spUrl c=main a=index}"></a>
+		</h1>
+		<ul id="nav">
+		    <li class="mainlevel" id="mainlevel_01"><a title="我的首页" href="{spUrl c=main a=user}" >首页</a></li>
+
+		    <li class="mainlevel" id="mainlevel_02"><a href="#" target="_blank">乌托邦</a>
+		    <ul id="sub_02">
+		    <li><a href="#" target="_blank">许愿区</a></li>
+		    <li><a href="#" target="_blank">祝福区</a></li>
+		    <li><a href="#" target="_blank">秘密区</a></li>
+		    <li><a href="#" target="_blank">埋怨区</a></li>
+		    <li><a href="#" target="_blank">咆哮区</a></li>
+		    </ul>
+		    </li>
+
+		    <li class="mainlevel" id="mainlevel_03"><a href="#" target="_blank">笑站导航</a></li>
+
+		    <li class="mainlevel" id="mainlevel_04"><a href="#" target="_blank">糗事下载</a></li>
+
+		    <div class="clear"></div>
+
+		</ul>
+		<div id="search">
+			<input type="text" value="搜索标签,发现兴趣" class="searchipt">
+			<input type="button" class="searchbtn" value="" onClick="searchTag()">
+		</div>
+		{if !islogin()}<div id="login"><a href="{spUrl c=main a=reg}" class="left_border">注册</a> <a href="{spUrl c=main a=login}">登录</a></div>{/if}
+	    {if islogin()}
+	    <div id="loginedin">
+	         <ul id="side">
+	         	<div id="name"><a href="{goUserHome domain=$smarty.session.domain uid=$smarty.session.uid}" target="_blank" title="我的主页">{$smarty.session.username}</a></div>
+	           	<ul id="notice">
+		            <li><a href="{spUrl c=user a=mynotice}">通知{if $noticeCount}<font style="color:#cc0000">({$noticeCount})</font>{/if}</a></li>
+		            <li><a href="{spUrl c=user a=pm}" class="left_border">私信{if $pmCount}<font style="color:#cc0000">({$pmCount})</font>{/if}</a></li>
+	       		</ul>
+	            <div id="user_nav">
+	            	<a id="img" href="javascript:;" tabindex="1">
+		            	<img src="{avatar uid=$smarty.session.uid size=middle}" alt="{$smarty.session.username}" width="30" height="30"/>
+		            </a>
+		            <ul id="menuSide" style="display:none;" tabindex="1">
+		            	<li><a href="{spUrl c=user a=setting}">设置</a></li>
+		                {if $smarty.session.admin ==1}<li><a href="{spUrl c=admin}">后台</a></li>{/if}
+		                <li><a href="{spUrl c=main a=logout}">退出</a></li>
+		         	</ul>
+	            </div>
+
+	        </ul>
+	      </div>
+	     {/if}
+	</div>
+	</div>
+
+	<div id="anno">
+	<div class="all">
+		<h1></h1>
+		<span>敬告：本网站仅供十八岁及以上用户浏览，请十八岁以下用户在监护人陪同下选择查看！</span>
+		<a href="javascript:closeAnno()">×</a>
+	</div>
+	</div>
+</div>
+
+<input type="hidden"  name="login_url" id="login_url" value="{spUrl c=main a=login}" />
+<input type="hidden"  name="reg_url" id="reg_url" value="{spUrl c=main a=reg}" />

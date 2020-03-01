@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+body { background-color:#EC8B1A; color:#000 } /*页面背景色*/
+
+a:link, a:visited {color: #333;text-decoration: none;} /*默认超链接*/
+a:hover {color: #A35900;text-decoration: underline;}
+
+#header_bg{width:100%; background:url(../image/header_bg.jpg) repeat-x  center top;}
+
+#header a{padding:0px 5px; text-decoration:none; color:#fff}
+header#main { height:120px}
+header#main #title {font-size: 50px; font-weight:bold; color:#FFF}
+header#main #sign{font-size:14px}
+
+
+#article{width:625px;float:left;}
+#article .box{ color:#333; width:640px;background: none repeat scroll 0 0 #FFFFFF;border-radius:7px;padding:15px; min-height:100px; box-shadow:2px 2px 1px #333; margin-bottom:20px}
+#article .box a,#article .box a:hover,#article .box a:visited{color:#333;}
+#article .box .content{width:100%}
+#article .box .content header{ font-size:12px; padding:5px 0px;}
+#article .box footer{ clear:both; text-align:right; line-height:20px;margin:20px 0px;}
+#article .box footer nav.tag{width:300px; overflow:hidden;  text-align:left; float:left}
+#article .box footer nav.tag a{ padding-right:5px}
+#article .box footer nav.menu{float:right;}
+#article .box footer nav.menu a{ padding-right:5px;}
+.content { font-size:14px; line-height:2em}
+
+
+/*  右侧部分 */
+aside{ width:200px; float:right;}
+aside #menu { background-color:#FFF}
+aside #menu a{display:block; padding:5px; margin-left:5px; color:#666}
+aside nav.title{font-weight:bold; font-size:14px; padding:5px; color:#fff; margin-top:10px; margin-bottom:5px}
+aside .follow img{padding:0px 2px}
+.face{border-radius:7px;}
+
+#foorer{color:#FFF}

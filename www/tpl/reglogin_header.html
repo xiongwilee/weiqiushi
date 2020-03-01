@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>{$yb.site_title} - {$yb.site_titlepre} - Power by 微糗事</title>
+<meta name="author" content="{$yb.author}" />
+<meta name="description" content="{$yb.site_desc}" />
+<meta name="keywords" content="{$yb.site_keyword}" />
+{include file="require_js.html" login=yes}
+<link href="{$url}/tpl/image/css/login.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="{$url}/tpl/image/favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+<div  class="all">
+<div id="relogin_header">
+	<a class="logo" href="{$url}" title="{$yb.site_titlepre}"></a>
+	<ul>
+		<li><a href="{$url}?c=main&a=reg" {if $flag=='reg'} class="current" {/if}>注册</a></li>
+		<li><a href="{$url}?c=main&a=login" {$flag} {if $flag=='login'} class="current" {/if}>登录</a></li>
+	</ul>
+</div>

@@ -1,0 +1,49 @@
+{include file="require_header.html"}
+<div class="all">
+<div class="container">
+<link rel="stylesheet" type="text/css" media="screen" href="tpl/image/css/recommend.css" />
+{literal}
+<script type="text/javascript" src="tpl/js/masonry.min.js"></script>
+
+<style>
+
+</style>
+<div class="contentTop"></div>
+{/literal}
+<div class="syscate">
+<h3>发现兴趣,关注作者</h3>
+	<ul class="syscateul clearfix">
+    <li><a href="{spUrl c=main a=discovery cateall=true}">全部</a></li>
+	{foreach from=$cate item=d}
+     {if $currcid == $d.cid}
+		<li class="selected"><a href="{spUrl c=main a=discovery cid=$d.cid catename=$d.catename}">{$d.catename}</a></li>
+    {else}
+    	<li><a href="{spUrl c=main a=discovery cid=$d.cid catename=$d.catename}">{$d.catename}</a></li>
+    {/if}
+    {/foreach}
+    </ul>
+    <h3 style="margin-top:15px">关注与您兴趣相投的作者{$smarty.get.catename}</h3>
+    {if $smarty.session.uid !=''}
+    <div>我的博客关键字：{if $user.blogtag}<a href="{spUrl c=main a=discovery  catename=$user.blogtag}">看看谁跟我关注的兴趣相同</a>{else}
+    <a href="{spUrl c=user a=setting}">您还没设置博客关键字,请先设置后在来试试</a>{/if}
+    ,我在:<a href="{spUrl c=main a=discovery  catename=$local.0 local=true}">{$local.0},看看谁和我在一块</a>
+</div>
+    {else}
+    	<div>您还没有登录，登陆后可以发现更多内容哟 您可以<a href="javascript:void(0)" onClick="loginBox('{spUrl c=main a=login}')">登陆</a> 或
+            <a href="javascript:void(0)" onClick="regBox('{spUrl c=main a=reg}')">注册</a></div>
+    {/if}
+    <div id="showuser" class="clearfix">
+     {include file="require_discovery_user.html" data=$userinfo}
+    </div>
+
+    <div id="feedAjaxTool" page="2" max="8" area="showuser" query="{spUrl c=main a=discovery ajaxload=true}" class="feedajax">
+    <a href="javascript:void(0)" onclick="continueShow('feedAjaxTool')">查看更多...</a>
+    <script>feedToolBar('feedAjaxTool');</script>
+
+
+</div>
+
+</div>
+</div>
+
+{include file="require_footer.html"}

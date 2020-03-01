@@ -1,0 +1,74 @@
+{include file='admin/header.html'}
+  <div id="content">
+   
+    {if !$get.showuser}
+     <h2>系统标签 | <a href="{spUrl c=admin a=tag showuser=yes}">用户标签</a></h2>
+     <form action="" method="post">
+       <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
+         <tr>
+           <th width="9%" scope="col">排序</th>
+           <th width="91%" scope="col"><input type="text" name="sort"/></th>
+         </tr>
+         <tr>
+           <th scope="col">标签名称</th>
+           <th scope="col"><input type="text" name="cname" /></th>
+         </tr>
+       </table>
+       <input type="submit" name="sysadd"  value="添加系统标签" />
+     </form>
+     
+     
+    <div class="nav">{$systagpager}</div>
+    <form action="" method="post">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table2">
+       <tr>
+         <th width="50" align="center" valign="middle" scope="col">排序</th>
+         <th align="center" valign="middle"  scope="col">标签</th>
+         <th width="100" align="center" valign="middle" scope="col">操作</th>
+       </tr>
+        {foreach from=$systag item=d}
+       <tr id="systag_{$d.cid}">
+         <td><input name="cate[{$d.cid}][sort]" type="text"  value="{$d.sort}" /></td>
+         <td><input name="cate[{$d.cid}][catename]"  type="text"  value="{$d.catename}" /></td>
+         <td align="right"><a href="javascript:void(0)" onclick="delsystag({$d.cid})">删除</a></td>
+       </tr>
+       {/foreach}
+    </table>
+    <input name="syscate" type="submit" value="保存" />
+    </form>
+    <div class="nav">{$systagpager}</div>
+    
+{else}
+
+<h2><a href="{spUrl c=admin a=tag}">系统标签</a> | 用户标签</h2>
+	  <div class="nav">{$usrtagpage}</div>
+       <form action="" method="post">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table2">
+       <tr>
+         <th align="center" valign="middle" scope="col">标签</th>
+         <th width="150" align="center" valign="middle"  scope="col">添加人</th>
+         <th width="50" align="center" valign="middle"  scope="col">活跃度</th>
+         <th width="100" align="center" valign="middle"  scope="col">添加时间</th>
+         <th width="100" align="center" valign="middle"  scope="col">最后调用时间</th>
+         <th width="47" align="center" valign="middle" scope="col">操作</th>
+       </tr>
+        {foreach from=$usrtag item=d}
+       <tr id="usertag_{$d.tid}">
+         <td><input name="tag[{$d.tid}]" type="text"  value="{$d.title}" /></td>
+         <td>{$d.user.username}</td>
+         <td>{$d.num}</td>
+         <td>{ybtime time=$d.time}</td>
+         <td>{ybtime time=$d.updates}</td>
+         <td><a href="javascript:void(0)" onclick="delusertag({$d.tid})">删除</a></td>
+       </tr>
+       {/foreach}
+    </table>
+    <input name="usercate" type="submit" value="保存" />
+    </form>
+    <div class="nav">{$usrtagpage}</div>
+    
+  {/if}  
+    
+   
+  </div>
+{include file='admin/footer.html'}

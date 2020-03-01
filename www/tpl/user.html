@@ -1,0 +1,62 @@
+{include file="require_header.html" gallery=yes}
+<div class="all">
+<div class="container">
+<div id="article">
+{include file="require_post.html"}
+{if $user.flow <=15 && islogin()}
+<div class="box">您关注用户过少,{$yb.site_title}将推送您更多内容 :)</div>
+<div class="article_bottom"></div>
+{/if}
+
+{if $noticeCount}
+<div id="message" style="display:none">
+	{foreach from=$notice item=d}
+    <div id="notice_{$d.id}">
+    <div class="delnotice">{if $d.isread ==0}<a href="javascript:void(0)" onClick="isreadnotice('{$d.id}','{spUrl c=blog a=readnotice id=$d.id}')">我知道了</a>{else}删除消息{/if}</div>
+        <div><div class="facearea">
+       		 <a href="{$url}/{$d.user.domain}" title="{$d.user.username}" target="_blank">
+       			 <img src="{avatar uid=$d.user.uid size=middle}" alt="{$d.tome.username}" align="absmiddle" class="face"/>
+       		 </a>
+        </div>
+           <p><a href="{$url}/{$d.user.domain}" title="{$d.user.username}" target="_blank">{$d.user.username}</a> {$d.title} - {$d.time|date_format:"%Y-%M-%d/%H:%M:%S"}</p>
+            <p class="info">{replay_preg msg=$d.info}  <a href="{notice_preg url=$d.location}">查看原文</a></p>
+       </div>
+    </div>
+    {/foreach}
+    <div class="clear"></div>
+
+
+</div>
+{/if}
+
+
+<!--<div class="channl clearfix"><a href="#">文字</a>  <a href="">音乐</a>  <a href="#">图片</a>  <a href="#">视频</a></div>-->
+<div id="feedArea">
+{include file="require_feeds.html" data=$blogs limits=4}
+</div>
+
+{if $yb.show_page_mode == 1}
+<div id="feedAjaxTool" page="2" max="{$yb.show_ajax_to}" area="feedArea" query="{spUrl c=main a=index ajaxload=true}" class="feedajax">
+<a href="javascript:void(0)" onclick="continueShow('feedAjaxTool')">查看更多...</a>
+</div>
+<script>feedToolBar('feedAjaxTool');</script>
+
+{else}
+
+<div class="nav">{$pager}</div>
+{/if}
+
+
+
+</div>
+
+
+
+
+<div id="aside">
+   {include file="require_sider.html"}
+</div>
+<div style="width:100%;height:1px;margin:0px;padding:0px;line-height:1px;font-size:1px;overflow:auto;"></div>
+</div>
+</div>
+{include file="require_footer.html"}

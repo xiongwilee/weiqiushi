@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{if $titlepre}{$titlepre} -{/if} {$title} {$yb.site_title} - {$yb.site_titlepre} - Powered by 微糗事</title>
+ <meta name="author" content="{$yb.author}" />
+    <meta name="description" content="{$yb.site_desc}" />
+    <meta name="keywords" content="{if $titlepre}{$titlepre},{/if}{$yb.site_keyword}" />
+{include file="require_js.html" layout=yes}
+</head>
+
+<body>
+<div id="header"><img src="{$url}/tpl/image/logoSmall.png" width="186" height="60" alt="Logo" style="float:left" />
+
+<div id="menu_bar">
+    <ul class="menu" id="menu">
+      <li><a class="nav" href="{spUrl c=site a=about}">关于<span></span></a></li>
+      {if !islogin()}
+    	  <li><a class="nav" href="{spUrl c=main a=login}">登录</a></li>
+           <li><a class="nav" href="{spUrl c=main a=reg}">注册</a></li>
+      {else}
+     	  <li><a class="nav" href="{spUrl c=user a=mynotice}">通知</a></li>
+            <li><a class="nav" href="{spUrl c=user a=pm}">私信</a></li>
+      {/if}
+    </ul>
+    
+    <div id="search">
+        <form class="text" action="/search/" method="get" id="search_form">
+        <input type="text" class="default_value ipt" value="" placeholder="搜索你喜欢的标签"  name="q" size="27" id="query">
+        <a class="lg" onclick="searchTag()" href="#" id="search_lens">
+        <img alt="搜索" src="{$url}/tpl/image/comm/search.gif"></a>
+        </form>
+    </div>
+</div>
+
+</div>
+
+<div class="wrapper">
+    <ul class="menu" id="nav">
+        <li><a class="nav {if $type ==1}selected{/if}" href="{spUrl c=main a=recommend type=1}">推荐文字</a></li>
+        <li><a class="nav {if $type ==2}selected{/if}" href="{spUrl c=main a=recommend type=2}">推荐音乐</a></li>
+        <li><a class="nav {if $type ==3}selected{/if}" href="{spUrl c=main a=recommend type=3}">推荐图片</a></li>
+        <li><a class="nav {if $type ==4}selected{/if}" href="{spUrl c=main a=recommend type=4}">推荐视频</a></li>
+        <li><a class="nav {if $type ==5}selected{/if}" href="{spUrl c=main a=recommend type=5}">推荐宝贝</a></li>
+        <ul class="menu" id="nav" style="float:right; margin-right:20px">
+            <li><a class="nav" href="{spUrl c=main}">首页</a></li>
+            <li><a class="nav" href="{spUrl c=main a=now}">此刻</a></li>
+            <li><a class="nav" href="{spUrl c=main a=discovery}">发现</a></li>
+           {if islogin()}
+           <li><a class="nav" href="{goUserHome domain=$smarty.session.domain uid=$smarty.session.uid}" target="_blank" title="我的主页">我的主页</a></li>
+           {/if}
+        </ul>
+    </ul>
+    
+</div>
+
+<div id="container" class="clearfix">
+
+    
+    {if $page.next_page<3}
+    <div class="box category Board"> 
+      {foreach from=$htag item=d}
+       <a href="{spUrl c=blog a=tag tag=$d.title}" target="_blank">{$d.title}</a>
+      {/foreach}      
+	</div>
+    {/if}
+
+{include file="recommend_feeds.html" date=$blogs}
+</div>
+
+<div id="page-nav" style=" display:none">  <a href="{spUrl c=main a=recommend page=$page.next_page type=$type}"></a> </div>
+</body>
+</html>

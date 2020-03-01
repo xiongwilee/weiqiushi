@@ -1,0 +1,63 @@
+{include file='admin/header.html'}
+  <div id="content">
+
+    <div>    <a href="{spUrl c=admin a=tag}">标签管理</a> | <a href="{spUrl c=admin a=recommend}">推荐管理</a></div>
+     <h2>搜索</h2>
+    <form id="form1" name="form1" method="post" action="">
+    <table width="100%" class="table">
+
+      <tr>
+        <td width="60">标题</td>
+        <td valign="middle"><input type="text" name="title" value="{$get.title}"  />
+        或</td>
+      </tr>
+      <tr>
+        <td>用户ID</td>
+        <td valign="middle"><input name="niname" type="text" value="{$get.niname}"/></td>
+      </tr>
+    </table>
+
+   <input name="submit" type="submit" value="搜索" />
+    </form>
+
+ <h2>博客列表</h2>
+	  <div class="nav">{$pager}</div>
+    <table width="100%" class="table2">
+    <tr>
+        <th width="30" align="center" valign="middle">ID</th>
+        <th width="30" align="center" valign="middle">置顶</th>
+        <th width="40" align="center" valign="middle">类型</th>
+        <th width="120" align="center" valign="middle">标签</th>
+        <th width="40" align="center" valign="middle">草稿</th>
+        <th width="40" align="center" valign="middle">点击</th>
+        <th width="40" align="center" valign="middle">动态</th>
+        <th width="40" align="center"  valign="middle">评论</th>
+        <th width="40" align="center" valign="middle">不评</th>
+        <th align="center"  valign="middle">标题</th>
+        <th width="80" align="center"  valign="middle">作者</th>
+        <th width="60" align="center" valign="middle">time</th>
+      </tr>
+  {foreach from=$blog item=d}
+    <tr>
+        <td>{$d.bid}</td>
+        <td valign="middle">{if $d.top == 1}顶{else}非{/if}</td>
+        <td valign="middle">{if $d.type == 1}文字{elseif $d.type ==2}音乐{elseif $d.type ==3}照片{elseif $d.type == 4}视频{/if}</td>
+        <td valign="middle">{tag tag=$d.tag c=tag}</td>
+        <td valign="middle">{if $d.open == 1}否{else}是{/if}</td>
+        <td valign="middle">{$d.hitcount}</td>
+        <td valign="middle">{$d.feedcount}</td>
+        <td valign="middle">{$d.replaycount}</td>
+        <td valign="middle">{if $d.noreply == 1}是{else}否{/if}</td>
+        <td valign="middle"><a href="{goUserBlog bid=$d.bid}" target="_blank">{if $d.title == ''}没有标题{else}{$d.title}{/if}</a></td>
+        <td valign="middle"><a href="{spUrl c=blog a=gouser uid=$d.user.uid}" target="_blank">{$d.user.username}</a></td>
+        <td valign="middle">{ybtime time=$d.time}</td>
+      </tr>
+   {/foreach}
+    </table>
+    <div class="nav">{$pager}</div>
+
+
+
+
+  </div>
+{include file='admin/footer.html'}

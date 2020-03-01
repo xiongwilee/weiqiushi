@@ -1,0 +1,11 @@
+<div id="postblog">
+        <div class="img"><img src="{avatar uid=$smarty.session.uid size=middle}" alt="{$smarty.session.username}" class="face"/></div>
+        <div class="pop">
+     {if $yb.addtext_switch ==1} <li><a {if islogin()} href="{spUrl c=add a=text}" {else} href="javascript:tips('请先登录');" {/if} class="text">文本糗事</a></li> <li class="ln"></li>{/if}
+    {if $yb.addmusic_switch ==1} <li><a {if islogin()} href="{spUrl c=add a=music}" {else} href="javascript:tips('请先登录');" {/if}  class="music">音频糗事</a></li><li class="ln"></li>{/if}
+    {if $yb.addimg_switch ==1} <li><a {if islogin()} href="{spUrl c=add a=image}" {else} href="javascript:tips('请先登录');" {/if}  class="photo">有真相的</a></li><li class="ln"></li>{/if}
+    {if $yb.addvideo_switch ==1}<li><a {if islogin()} href="{spUrl c=add a=video}" {else} href="javascript:tips('请先登录');" {/if}  class="video">视频糗事</a></li><li class="ln"></li>{/if}
+     {if $yb.addbaobei_switch ==1}<li><a {if islogin()}   href="{spUrl c=add a=product}" {else} href="javascript:tips('请先登录');" {/if} class="product">宝贝</a></li>{/if}
+    <!--<li><a href="#" class="link">其他</a></li>-->
+      </div>
+</div>

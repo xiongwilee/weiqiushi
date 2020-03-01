@@ -1,0 +1,88 @@
+@charset "utf-8";
+/* login page code by 幻の羽翼 copyright  */
+/*reset*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{padding:0;margin:0;}
+fieldset, img{border:0;}
+table{border-collapse: collapse;border-spacing:0;}
+ol,ul{list-style: none;}
+address,caption,cite,code,dfn,em,strong,th,var{font-weight:normal;font-style:normal;}
+caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-weight: normal;font-size: 100%;}
+q:before,q:after{content:'';}
+abbr,acronym{border:0;}
+/**resetend**/
+body{ background-color: #EC8B1A;font-family:'微软雅黑'; font-size:12px;}
+.all{width:460px;margin:0 auto;}
+
+/*合作登陆*/
+#openconnent{ clear:both; margin-top:20px;border-top:1px dashed #dfdfdf;padding-top:10px;}
+#openconnent #area{ margin:10px 0px;}
+#openconnent h1{font-size:18px;font-weight:bold;line-height:30px;}
+
+#openconnent #area li{display:block; width:126px; height:24px; text-align:center; float:left; margin-right:10px; margin-bottom:10px}
+#openconnent #area li a {line-height:42px; color:#6F79FF; text-decoration:none; }
+#openconnent #area li a:hover{color:#06F}
+
+/*ie6*/
+.ie6{font-size:12px; line-height:1.5em; font-family:'宋体'; color:#006}
+.ie6 h1{font-size:18px; padding:5px 0px;color:#2586B3; font-weight:bold;text-shadow:1px 1px 1px #FFF; font-family:'微软雅黑'}
+
+#errmsg{ font-size:12px; color:#FB1C4E; margin-left:5px;}
+
+/*header*/
+#relogin_header{width:460px;background:url(../login/login_header_bg.jpg) no-repeat;margin-top:50px;}
+#relogin_header .logo{display:block;height:65px;width:155px;margin:0 auto;margin-bottom:5px;padding-top:25px;}
+#relogin_header ul{padding:0 20px;height:30px;}
+#relogin_header ul li{float:left;width:200px;height:30px;line-height:30px;text-align:center;margin:0 5px;}
+#relogin_header ul li a{color:#fff;font-size:14px;display:block;width:200px;height:30px;line-height:30px;text-decoration:none;}
+#relogin_header ul li a:hover{text-decoration:underline;}
+#relogin_header ul li .current{color:#333333;background:url(../login/login_nav_bg.jpg) repeat-x;}
+
+/*body*/
+#relogin_body{background:url(../login/login_body_bg.jpg) repeat-y;padding:10px 40px;width:380px;}
+#relogin_body .remember a,#relogin_body .remember a:visited{color:#2586B3; text-decoration:none}
+#relogin_body .remember a:hover{text-decoration:underline;}
+#relogin_body .form{}
+#relogin_body .form h1{font-size:18px;font-weight:bold;line-height:30px;}
+#relogin_body .form .filed{margin:10px 0; }
+#relogin_body .form .filed label{font-size:14px;color:#666666;padding-left:20px;line-height:30px;}
+#relogin_body .form .filed input{height:30px;border:1px solid #ffc681;width:300px;line-height:30px;color:#666666;padding-left:5px;font-size:14px;}
+#relogin_body .form .filed .regBtn{width:140px;height:42px;float:right;border:none;background:url(../login/regbtn.png) no-repeat;}
+
+/*登陆框、注册字段*/
+#logbox { margin-bottom:100px; width:500px; height:230px; overflow:hidden}
+#logbox h1{}
+#loginarea .filed{ }
+#loginarea .filed label .nocontent {}
+#loginarea .filed label {}
+#loginarea .filed .input{ }
+#loginarea .filed .curr{}
+#loginarea .filedBtn{width:80px;float:right}
+#loginarea .filedBtn .subBtn{ width:87px; height:42px; overflow:hidden; background:url(../login/login.png) no-repeat; border:0px; margin-top:-1px;_margin-top:1px;cursor:pointer;}
+#loginarea .filedBtn .loading{width:87px; height:42px; background:url(../comm/loading.gif) no-repeat; border:0px; background-position:5px}
+#loginarea .remember td{ padding-top:2px; padding-left:2px;color:#2586B3;}
+
+/*footer*/
+#footer{ height:260px; width:100%;}
+#copyright{ text-align:center;padding-top:39px;background:url(../login/login_footer_bg.jpg) top no-repeat;}
+#copyright .nav{ }
+#copyright .nav li{float:left;list-style:none;}
+#copyright .nav li a,#copyright .copy a{ color:#333333;text-decoration:none;padding:0 13px;}
+#copyright .nav li a:hover,#copyright .copy a:hover{text-decoration:underline;color:#fff;}
+#copyright .copy{color:#333;}
+
+#wrap{width:100%; background:url();}
+#main{ width:900px; margin:0px auto; position:relative}
+#logo{padding-top:60px;}
+#lbtn{background:url(../login/login_lbtn.png) no-repeat; width:243px; height:95px; position:absolute; top:-20px;right:10px; right:10px;}
+#rbtn{background:url(../login/reg_lbtn.png) no-repeat; width:243px; height:95px; position:absolute; top:-20px;right:10px;}
+#lbtn a,#rbtn a{ display:block; text-decoration:none; margin:25px 0px 0px 123px; color:#348EB9; font-size:18px}
+
+
+/*plugin public*/
+.backToTop { display: none; width: 18px; line-height: 1.2; padding: 5px 0; background-color: #000; color: #fff;font-size: 12px;text-align: center;
+    position: fixed; _position: absolute; right: 10px; bottom: 200px; _bottom: "auto"; cursor: pointer; opacity: .6; filter: Alpha(opacity=60);
+}
+.clear{clear:both;}
+.clearfix{overflow:auto; zoom:1;}
+

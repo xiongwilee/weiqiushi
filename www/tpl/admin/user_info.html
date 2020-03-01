@@ -1,0 +1,68 @@
+{include file='admin/header.html'}
+  <div id="content">
+   
+    
+     <h2>搜索</h2>
+    <form id="form1" name="form1" method="post" action="">
+    <table width="100%" class="table">
+
+      <tr>
+        <td width="25%">用户邮箱、用户昵称、用户域名</td>
+        <td valign="middle"><input name="where" type="text" value="{$get.niname}"/></td>
+      </tr>
+    </table>
+    
+   <input name="submit" type="submit" value="搜索" />
+    </form>
+    
+ <h2>用户显示</h2>
+	  <div class="nav">{$pager}</div>
+      
+    <table width="500" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>{if $info.admin == 1}管理员{/if} 账号</td>
+        </tr>
+        <tr>
+          <td><a href="{goUserHome domain=$info.domain uid=$info.uid}" target="_blank">{$info.email}</a>&nbsp;{if $info.open == 1}允许{else}禁止{/if}</td>
+        </tr>
+        <tr>
+          <td>头像</td>
+        </tr>
+        <tr>
+          <td><img src="{avatar uid=$info.uid size=middle}" alt="{$info.username}"/>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>注册时间</td>
+        </tr>
+        <tr>
+          <td>{$info.regtime|date_format:'%Y-%m-%d %H:%M:%S'}&nbsp;</td>
+        </tr>
+        <tr>
+          <td>最近登陆</td>
+        </tr>
+        <tr>
+          <td>{$info.logtime|date_format:'%Y-%m-%d %H:%M:%S'}&nbsp;</td>
+        </tr>
+        <tr>
+          <td>发布 / 跟随 / 喜欢</td>
+        </tr>
+        <tr>
+          <td>{$info.num} / {$info.flow} / {$info.likenum}</td>
+        </tr>
+        <tr>
+          <td> 
+        <a href="javascript:;" onclick="nologin({$info.uid})">{if $info.open == 1}禁访{else}解禁{/if}</a>
+       | <a href="javascript:resetpwd({$info.uid},'{$info.username}')">重设密码</a>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><input name="button" type="button" value="返回上一页" onclick="window.history.go(-1)" />&nbsp;</td>
+        </tr>
+    </table>
+
+
+    
+    
+    
+   
+  </div>
+{include file='admin/footer.html'}

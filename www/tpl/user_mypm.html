@@ -1,0 +1,169 @@
+{include file="require_header.html" loadedit=yes}
+<div class="all">
+<div class="container">
+<div id="article">
+<h1><a href="{spUrl c=user a=pm}"{$curr_my_notice}>我的私信</a> </h1>
+<div id="message" style="margin:0">
+
+
+{if $islook}
+<h2>与 {$foruser.username} 对话中 - <a href="{spUrl c=user a=pm}">返回私信</a></h2>
+
+{literal}
+<script>
+
+
+</script>
+{/literal}
+
+<form id="postpm" method="post" style="margin-top:15px">
+<table width="580" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td> <img src="{avatar uid=$smarty.session.uid size=middle}" alt="{$smarty.session.username}" align="absmiddle"/></td>
+    <td> <input name="uid" type="hidden"  value="{$foruser.uid}"/>
+ {literal}<textarea name="info"  id="info"  class="xheditor {tools:'smallmail'}" style="width:100%; height:100px">{/literal}</textarea> </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="right">   <span id="submit_tip" style="display:none">正在发送...</span>
+      <input name="submit" type="button" id="submit_button" class="blue-button submit"  value="发送私信" onclick="doPmSubmit();" tabindex="4"/>&nbsp;</td>
+    </tr>
+</table>
+
+
+
+
+
+
+
+
+	<br/>
+</form>
+
+{foreach from=$read item=d}
+<div class="article"  id="notice_{$d.id}">
+      <div class="delnotice">
+
+        </div>
+        {if $d.foruid != $smarty.session.uid}
+            <div>
+
+            <div class="facearea">
+                 <a href="{goUserHome domain=$d.user.domain uid=$d.user.uid}" title="{$d.user.username}" target="_blank">
+                     <img src="{avatar uid=$d.user.uid size=middle}" alt="{$d.user.username}" align="absmiddle" class="face"/>
+                 </a>
+            </div>
+
+               <p><a href="{goUserHome domain=$d.user.domain uid=$d.uid}" title="{$d.user.username}" target="_blank">{$d.user.username}</a> {ybtime time=$d.time} 回复我</p>
+                <p class="info">{replay_preg msg=$d.info}</p>
+                <p align="right">
+
+            		<a href="javascript:void(0)" onclick="sendpm({$d.foruid})">回复</a>
+          			<a href="javascript:void(0)" onClick="delnotice('{$d.id}','{spUrl c=blog a=delnotice id=$d.id}')">删除</a>
+              </p>
+           </div>
+         {else}
+
+           <div>
+
+            <div class="facearea" style="float:right">
+                 <a href="{goUserHome uid=$d.user.uid}" title="{$d.user.username}" target="_blank">
+                     <img src="{avatar uid=$d.user.uid size=middle}" alt="{$d.user.username}" align="absmiddle" class="face"/>
+                 </a>
+            </div>
+
+
+
+               <p><a href="{goUserHome uid=$d.user.uid}" title="{$d.user.username}" target="_blank">我</a> {ybtime time=$d.time} 发出</p>
+                <p class="info">{replay_preg msg=$d.info}</p>
+                <p align="left">
+                <a href="javascript:void(0)" onClick="delnotice('{$d.id}','{spUrl c=blog a=delnotice id=$d.id}')">删除</a>
+
+            </p>
+           </div>
+         {/if}
+
+
+
+
+
+        </div>
+      {/foreach}
+
+
+{else}
+
+<h2>私信 {if $pmCount} ({$pmCount}) {/if}</h2>
+    {foreach from=$mypm item=d}
+
+        <div class="article"  id="notice_{$d.id}">
+      <div class="delnotice">
+
+        </div>
+            <div><div class="facearea">
+                 <a href="{goUserHome domain=$d.user.domain uid=$d.uid}" title="{$d.user.username}" target="_blank">
+                     <img src="{avatar uid=$d.foruid size=middle}" alt="{$d.tome.username}" align="absmiddle" class="face"/>
+                 </a>
+            </div>
+               <p>{$k}<a href="{goUserHome domain=$d.domain uid=$d.foruid}" title="{$d.username}" target="_blank">{$d.username}</a> {ybtime time=$d.time} 来信 - 未读({$d.fcount})</p>
+                <p class="info">{replay_preg msg=$d.info}</p>
+                <p align="right">
+
+            <a href="{spUrl c=user a=pm look=$d.foruid}">查看上下文</a>
+
+            </p>
+           </div>
+        </div>
+       {foreachelse}
+
+    		 {foreach from=$usdpm item=d}
+
+                <div class="article"  id="notice_{$d.id}">
+                  <div class="delnotice">
+
+                    </div>
+                        <div><div class="facearea">
+                             <a href="{goUserHome domain=$d.user.domain uid=$d.uid}" title="{$d.user.username}" target="_blank">
+                                 <img src="{avatar uid=$d.uid size=middle}" alt="{$d.tome.username}" align="absmiddle" class="face"/>
+                             </a>
+                        </div>
+                           <p>与<a href="{goUserHome domain=$d.domain uid=$d.uid}" title="{$d.username}" target="_blank">{$d.username}</a> 对话{$d.user.uid}{ybtime time=$d.time} - 共{$d.fcount}条</p>
+                            <p class="info">{replay_preg msg=$d.info}</p>
+                            <p align="right">
+                          <a href="{spUrl c=user a=pm look=$d.uid}">查看上下文</a>
+                         / <a href="javascript:void(0)" onclick="sendpm({$d.uid})">回复</a>
+
+                        </p>
+                       </div>
+                    </div>
+                      {foreachelse}
+                             <div class="content">
+                                   暂时没私信
+                             </div>
+
+                       {/foreach}
+    {/foreach}
+
+{/if}
+
+
+
+
+    <div class="clear"></div>
+</div>
+
+
+     <footer class="nav">{$pager}</footer>
+</div>
+
+
+
+
+
+
+<div id="aside">
+   {include file="require_sider.html"}
+</div>
+<div class="clear"></div>
+</div>
+</div>
+{include file="require_footer.html"}

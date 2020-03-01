@@ -1,0 +1,28 @@
+{include file="require_header.html" gallery=yes}
+
+
+<div class="all">
+<div class="container">
+<div id="article">
+{include file="require_post.html"}
+<div id="feedArea">
+{include file="require_feeds.html" data=$blogs limits=4}
+</div>
+<!--<footer class="nav">{$pager}</footer> -->
+<div id="feedAjaxTool" page="2" max="10" area="feedArea" query="{spUrl c=main a=now ajaxload=true}" class="feedajax">
+<a href="javascript:void(0)" onclick="continueShow('feedAjaxTool')">查看更多...</a>
+</div>
+<script>feedToolBar('feedAjaxTool');</script>
+
+</div>
+
+
+
+
+<div id="aside">
+   {include file="require_sider.html"}
+</div>
+<div class="clear"></div>
+</div>
+</div>
+{include file="require_footer.html"}

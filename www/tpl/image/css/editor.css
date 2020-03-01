@@ -1,0 +1,5 @@
+@charset "utf-8";
+/*可是编辑器内部的 CSS Document */
+body{font-size:16px; line-height:1.5em; margin:20px;}
+p{font-size:16px; margin:0px; line-height:1.5em; }
+img {border:0px}

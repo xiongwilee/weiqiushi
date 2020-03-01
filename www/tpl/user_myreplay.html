@@ -1,0 +1,88 @@
+{include file="require_header.html"}
+<div class="all">
+<div class="container">
+<div id="article">
+<h1><a href="{spUrl c=user a=myreplay}"{$curr_myreplay}>发出的回复</a> <a href="{spUrl c=user a=myreplay received=1}"{$curr_myreplay_r}>收到的回复</a></h1>
+{foreach from=$myreplay item=d}
+
+<div class="box" id="blog_{$d.bid}">
+
+    {if $received ==1}
+     <div class="top">
+     	<a href="{goUserHome domain=$d.user.domain uid=$d.uid}" title="{$d.user.username}" target="_blank">
+     	<img src="{avatar uid=$d.user.uid size=middle}" alt="{$d.user.username}" class="face"/></a><span class="jiao"></span>
+     </div>
+     <div class="header">
+       <cite> <a href="{goUserHome domain=$d.user.domain uid=$d.uid}">{$d.user.username}</a></cite>
+     </div>
+  	{else}
+     <div class="top">
+     	<a href="{goUserHome domain=$d.user.domain uid=$d.uid}" title="{$d.user.username}" target="_blank">
+     	<img src="{avatar uid=$d.user.uid size=middle}" alt="{$d.user.username}" class="face"/></a><span class="jiao"></span>
+     </div>
+     <div class="header">
+       <cite> <a href="{goUserHome domain=$d.user.domain uid=$d.uid}">{$d.user.username}</a></cite>
+     </div>
+
+
+
+    {/if}
+
+
+
+     <div id="feedText_{$d.bid}" class="content">
+           {replay_preg msg=$d.msg}
+     </div>
+     <div class="footer">
+      <div class="tag" style="width:550px">{$d.time|date_format:"%Y-%m-%d %H:%m"}</dv>
+      <div class="menu">
+      <a href="javascript:void(0)" onclick="indexPostTab('comment','{$d.bid}','{spUrl c=blog a=getReplay}')" id="comment_btn_{$d.bid}">
+       评论原文<em>{if {$d.replaycount} != 0}({$d.replaycount}){/if}</em></a>
+       <a href="{goUserBlog bid=$d.bid}#comment">查看原文</a> </div>
+        <div class="clear"></div>
+     </div>
+     <div class="clear"></div>
+
+
+      <div style="display:none" id="comment_{$d.bid}">
+        <div class="comment">
+        {if islogin()}
+            <textarea id="replyInput_{$d.bid}"></textarea>
+            <input type="hidden" id="replyTo_{$d.bid}" />
+            <div class="submit">
+             <em class="green" id="replyInput_lengthinf_{$d.bid}"></em>
+             <input type="button" value="提交评论" onclick="sendReplay('{$d.bid}','{spUrl c=blog a=replay}')" class="btn" />
+         </div>
+          {/if}
+          <ul class="commentList" id="commentList_{$d.bid}"></ul>
+        </div>
+      </div>
+
+       <div id="feeds_{$d.bid}"  style="display:none">
+        <div class="comment">
+          <ul class="feedList" id="feedList_{$d.bid}">
+          </ul>
+        </div>
+      </div>
+
+
+    </div>
+    </div>
+{/foreach}
+
+
+     <div class="nav">{$pager}</div>
+</div>
+
+
+
+
+
+
+<div id="aside">
+   {include file="require_sider.html"}
+</div>
+<div class="clear"></div>
+</div>
+</div>
+{include file="require_footer.html"}

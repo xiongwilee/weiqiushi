@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* CSS Document */
+/*样式初始化*/
+header,nav,article,footer{display:block}
+footer{clear:both}
+img{border:0px}
+
+/*
+全局框架使用 
+	body页面背景图或背景色
+	header_bg顶部背景图
+	footer_bg底部背景图
+*/
+
+/*可动态改变替换的背景图像颜色*/
+body {color: #999999; font-family:'Microsoft Yahei','Arail';font-size: 12px;background: none repeat scroll 0 0 #21170E;} /*#21170D*/
+#header_bg{width:100%; background:url(../image/header_bg.jpg) no-repeat fixed center top;} 
+#footer_bg{width:100%;} 
+a:link, a:visited {color: #568D99;text-decoration: none;}
+a:hover {color: #568D99;text-decoration: underline;}
+
+/*mini导航设置*/
+#header{ margin-bottom:10px;background-color:rgba(0,0,0,0.3); padding:5px; text-align:right} 
+#header a{padding:0px 5px; text-decoration:none; color:#FFF}
+#header a:hover{background-color:#FFF; color:#000}
+

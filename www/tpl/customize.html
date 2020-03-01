@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>定制界面</title>
+{include file="require_js.html" custom=yes}
+<style>
+.customizeTool{
+	/*position:fixed;*/
+	width:100%;
+}
+.customizeTool .head{
+	background:#1F1F1F;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.7);
+    font-size: 12px;
+    height: 50px;
+}
+
+
+	
+.customizeTool .head a{
+	display:block;
+	height:50px;
+	font-size:14px;
+	padding:0px 18px;
+	float:left;
+	margin-right:2px;
+	line-height:50px;
+	text-decoration:none;
+	color:#BABABA
+}
+.customizeTool .head a:hover{
+	background:#313131;
+}
+.customizeTool .head a.current{
+	background:#313131;
+}
+
+.customizeTool .savebutton{
+	float:right;
+}
+.customizeTool .savebutton a{
+	margin-right:5px
+}
+
+.allThemes{
+	margin:0px;
+	background-color:#fff;
+	border-bottom: 1px solid #B1B1B1;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.7);
+	/*display:none;*/
+}
+
+.allThemes .theme{
+	display:block;
+	width:208px;
+	margin:20px;
+	float:left;
+}
+
+.allThemes .theme a{
+	display:block;
+	width:200px;
+	border:4px solid #E2E2E2;
+}
+.allThemes .theme a:hover{
+	border:4px solid #F9D853;
+}
+.allThemes .custom{
+	padding:20px;
+}
+
+
+.allThemes .theme h3{
+	margin-top:5px;
+ 	color: #333333;
+	font-size: 14px;
+	word-wrap: break-word;	
+}
+.customtable tr td{
+	padding:5px
+}
+.customtable .colorinput{
+	width:60px;
+}
+.customtable .priew{
+	padding:5px 10px;
+}
+
+.clearfix{
+	zoom:1
+}
+.clearfix:after{
+	content:"";display:block;height:0;line-height:0;font-size:0;visibility:hidden;clear:both
+}
+
+</style>
+</head>
+
+<body>
+<div class="customizeTool">
+	<div class="head">
+    {if $type == ''}<a href="javascript:void(0)" onclick="slideToggle()" class="current">模板主题</a>{else} <a href="{spUrl c=userblog a=customize}">模板主题</a>{/if}
+    {if $type == my}<a href="javascript:void(0)" onclick="slideToggle()" class="current">专属主题</a>{else}<a href="{spUrl c=userblog a=customize type=my}">专属主题</a>{/if}
+    {if $type == custom}<a href="javascript:void(0)" onclick="slideToggle()" class="current">自定义主题外观</a>{else}<a href="{spUrl c=userblog a=customize type=custom}">自定义主题外观</a>{/if} 
+    <div class="savebutton"><a href="javascript:void(0)" onclick="saveConfig('{spUrl c=userblog a=customize action=send}')">保存设置</a>
+    <a href="javascript:void(0)" onclick="CannlConfig('{spUrl c=userblog a=customize action=cal}')">取消</a></div>
+    </div>
+	
+    <div class="allThemes clearfix">
+    {if $type == custom}
+    
+    <div class="custom">
+    <form id="form1" name="form1" method="post" action="{spUrl c=userblog a=customize type=custom}" enctype="multipart/form-data">
+    <table width="677" border="0" cellspacing="0" cellpadding="0" class="customtable">
+      {foreach from=$setting item=d}
+      <tr>
+          <td width="80">{$d.title}</td>
+          <td width="287">{themecustom type=$d.type data=$d.options id=$d.id lable=$d.findid default=$d.default formvalue=$smarty.session.customize.config}</td>
+          <td width="310">{$d.description}</td>
+        </tr>
+      {/foreach}
+         <tr>
+          <td colspan="3"><input type="submit" name="submit" id="submit" value="预览" class="priew"/>
+          <input type="button" value="回归默认" class="priew" onclick="customDefault('{spUrl c=userblog a=customize customdefault=yes}')"/></td>
+          </tr>
+       
+    </table>
+ 	</form>
+    
+    </div>
+    
+    {else}
+
+       {if $type != my}
+         <div class="theme">
+         <a href="javascript:void(0)" onclick="setThemeId('{spUrl c=userblog a=customize skinid=default}')"><img src="{$url}/tpl/theme/default/cover.jpg" width="200" height="120" /></a>
+          <h3>微糗事经典</h3>
+         </div>
+         {/if}
+    
+        {foreach from=$skins item=d}
+         <div class="theme">
+         <a href="javascript:void(0)" onclick="setThemeId('{spUrl c=userblog a=customize skinid=$d.id}')"><img src="{$url}/tpl/theme/{$d.skindir}/cover.jpg" width="200" height="120" /></a>
+          <h3>{$d.name}{if $d.usernumber > 10}({$d.usenumber}){/if}</h3>
+         </div>
+         {foreachelse}
+         <div class="theme">
+         <a href="javascript:void(0)"><img src="{$url}/tpl/theme/default/nocover.jpg" width="200" height="120" /></a>
+          <h3>没有更多主题</h3>
+         </div>
+         {/foreach}
+         
+    {/if}     
+   
+      
+    
+    </div>
+    
+</div>
+<iframe width="100%" frameborder="0" name="previewIframe" id="previewIframe" src="{goUserHome uid=$smarty.session.uid}"></iframe>
+<script type="text/javascript">
+window.setInterval("reinitIframe()", 100);
+</script>
+</body>
+</html>

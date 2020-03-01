@@ -1,0 +1,67 @@
+@charset "utf-8";
+/*样式初始化*/
+header,nav,article,footer{display:block}
+footer{clear:both}
+img{border:0px}
+
+/*
+全局框架使用 
+	body页面背景图或背景色
+	header_bg顶部背景图
+	footer_bg底部背景图
+*/
+
+/*可动态改变替换的背景图像颜色*/
+body {color: #999999; font-family:'Microsoft Yahei','Arail';font-size: 12px;background: none repeat scroll 0 0 #E3E3E3;}
+#header{ padding-top:0px;width:980px;}
+#header_bg{width:100%; background:url(../headerbg.gif) no-repeat center top;} 
+#footer_bg{width:100%;background:url() repeat-x bottom; } 
+a:link, a:visited {color: #568D99;text-decoration: none;}
+a:hover {color: #568D99;text-decoration: underline;}
+#wrap{width:980px}
+#banner img{border-radius:0px 0px 11px 11px;}
+.welcome{width:980px; min-height:550px;}
+
+
+
+
+.welcome .box{ background-color:#425E6F; position:relative; margin:7px; width:180px; height:180px; overflow:hidden; float:left; border-radius: 11px;}
+.welcome .box a{text-decoration:none}
+.welcome .boxhover{width:180px; height:180px; position:absolute; left:0px; top:0px; background-color:#000; background-color:rgba(0,0,0,0.7); display:none; }
+.welcome .boxhover .img{text-align:center; margin-top:38px}
+.welcome .boxhover .img img{border-radius: 11px;}
+.welcome .boxhover .p{text-align:center; margin-top:5px; font-weight:bold}
+.welcome .video{position:absolute;text-align:center; top:70px; left:70px;}
+.welcome .music{position:absolute;text-align:center; top:55px; left:60px;}
+.welcome .logo{width:568px;height:180px; background:url(../logo_big.png) no-repeat #FFF;position:relative}
+.welcome .loginmenu{position:absolute; right:0px; padding:5px 15px 5px 0px; top:110px; font-size:14px;}
+.welcome .textcontents{font-size:20px; padding:5px;}
+.welcome .mediadesc{ font-size:14px}
+.welcome .tag {
+	position:absolute;
+	right:10px;
+	top:86%;
+	background-color:#000;
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 11px 11px 11px 11px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.45);
+    color: #FFFFFF;
+    padding: 0 5px 1px;
+}
+.welcome .imgcount{position:absolute; left:60px;  top:80px; width:60px;
+	background-color:#000;
+	background: none repeat scroll 0 0 rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 7px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.45);
+    color: #FFFFFF;
+	text-align:center;
+    padding: 5px;}
+
+.loginipt{width:160px; color:#999; }
+.loginmenu .info{padding:5px }
+.pwdipt{width:140px}
+.player{margin:0px; display:block}
+.clearfix{zoom:1}
+.clearfix:after{content:"";display:block;height:0;line-height:0;font-size:0;visibility:hidden;clear:both}

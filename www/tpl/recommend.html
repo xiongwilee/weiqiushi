@@ -1,0 +1,40 @@
+{include file="require_header.html" layout=yes}
+
+<div class="all">
+<div class="container">
+<div class="channle">
+<div class="welcome clearfix"> {include file="recommend_feeds.html" date=$blog}</div>
+<div class="htag">
+  <div class="htag">
+    <table width="900" cellpadding="0" class="hottab" cellspace="0">
+      <thead>
+        <tr >
+          <th width="167" class="tag-hd">热门标签</th>
+          <th width="322" class="hot-hd">标签热度</th>
+          <th width="171" class="editor-hd">最新更新时间</th>
+          <th width="228" class="editor-hd">贡献者博客</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      {foreach from=$htag item=d}
+      <tr class="tag-row {cycle values="odd,add"}">
+        <td class="tag"><a href="{spUrl c=blog a=tag tag=$d.title}" target="_blank">{$d.title}</a></td>
+        <td class="hot"><div class="state" style="width:{checkHit max=$hotMax val=$d.num}%">{$d.num}</div> </td>
+        <td class="editor">{ybtime time=$d.updates}&nbsp;</td>
+        <td class="editor">
+        <a href="{$url}/{$d.user.domain}" title="{$d.user.username}" target="_blank"> <img src="{avatar uid=$d.user.uid size=small}" alt="{$d.user.username}" align="absmiddle"/>{$d.user.username}</a>
+        </td>
+
+      </tr>
+      {/foreach}
+      </tbody>
+
+    </table>
+  </div>
+</div>
+
+
+</div>
+</div>
+{include file="require_footer.html"}

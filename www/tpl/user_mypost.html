@@ -1,0 +1,21 @@
+{include file="require_header.html" gallery=yes}
+<div class="all">
+<div class="container">
+<div id="article">
+<h1><a href="{spUrl c=user a=mypost}"{$curr_my_index}>我发布的</a><a href="{spUrl c=user a=mypost draft=yes}"{$curr_my_draft}>草稿</a></h1>
+     {include file="require_feeds.html" data=$blogs limits=all}
+  <div class="nav">{$pager}</div>
+</div>
+
+
+
+
+
+
+<div id="aside">
+   {include file="require_sider.html"}
+</div>
+<div class="clear"></div>
+</div>
+</div>
+{include file="require_footer.html"}

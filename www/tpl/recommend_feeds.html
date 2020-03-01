@@ -1,0 +1,23 @@
+{foreach from=$date item=d}
+
+    <div class="box">
+    <div class="userInfo clearfix"> <a href="{goUserBlog bid=$d.bid}"  target="_blank"><img src="{avatar uid=$d.uid size=middle}" class="avatar"></a>
+        <div class="username"><strong><a target="_blank"  href="{goUserHome uid=$d.uid}">@{$d.user.username}</a></strong>
+          <p class="time">{ybtime time=$d.time}</p>
+        </div>
+      </div>
+    <!--类型 {$d.type} -->
+    	  {if $d.blog.type == 1 and $d.attr}<img src="{$url}/{$d.attr}" class="image"/>{/if}
+          {if $d.blog.type == 2 || $d.type == 4}{parseMedia attrs=$d.attr bid=$d.bid}{/if}
+          {if $d.blog.type == 3}{parseImage attrs=$d.attr bid=$d.bid}{/if}
+          {if $d.blog.type == 5}{parseShop attrs=$d.attr bid=$d.bid}{/if}
+
+     <p class="info"><a href="{goUserBlog bid=$d.bid}"  target="_blank">{$d.content|strip_tags}</a></p>
+      <!--作者-->
+
+     <span class="tag">{if $d.blog.type == 1}文字{elseif $d.blog.type == 2}音乐
+     					{elseif $d.blog.type == 3}图片{elseif $d.blog.type == 4}视频
+                        {elseif $d.blog.type == 5}宝贝{else}其他{/if}
+    </span>
+    </div>
+{/foreach}

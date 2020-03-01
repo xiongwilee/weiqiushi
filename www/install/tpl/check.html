@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>微糗事安装向导</title>
+<link href="image/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="wrapper">
+	<div id="container">
+	<div id="header">
+		<div class="logo"><img src="image/logo.png"></img></div>
+		<div class="type"><img src="image/check.png"></img></div>
+	</div>
+
+	<div class="leftbox1"><img src="image/notic.png"></img></div>
+	<div class="rightbox1">
+		<ul>
+		<li>将压缩包中 yunbian 目录下全部文件和目录上传到服务器。</li>
+		<li>如果您使用非 WINNT 系统请修改以下文件夹属性：./tpm  目录 777;./attachs 目录 777;./customavatars  目录 777;./avatar  目录 777;</li>
+		<li>确认 URL 中 /attachs,/avatar 可以访问服务器目录 ./attachs,/avatar 内容。</li>
+		<li>如果config.php文件不可写，请自行修改该文件上传到论坛根目录下。</li>
+		<li>如果目录可写检查失败，或系统配置检查失败则无法安装系统，请勿强行安装。</li>
+		</ul>	
+	</div>
+	
+<div class="conbox">
+<div class="license">
+
+<table class="datatable">
+	<tr>
+    <th scope="col"></th>
+    <th scope="col">Yunbian所需配置</th>
+    <th scope="col">Yunbian推荐配置</th>
+    <th scope="col">当前服务器</th>
+	</tr>
+	<tr>
+    <td>操作系统</td>
+    <td>不限</td>
+    <td>UNIX/Linux/FreeBSD</td>
+    <td><?php echo PHP_OS; ?></td>
+	</tr>
+	<tr>
+    <td>PHP 版本</td>
+    <td>5.2+</td>
+    <td>5.3+</td>
+    <td><?php if(PHP_VERSION < '5.2'){echo '不支持！请升级到php5.2+';}else{echo PHP_VERSION;}?></td>
+	</tr>
+	<tr>
+    <td>附件上传</td>
+    <td>不限</td>
+    <td>允许</td>
+    <td><?php echo getUploadState(); ?></td>
+	</tr>
+	<tr>
+    <td>数据库扩展</td>
+    <td>mysql</td>
+    <td>pdo</td>
+    <td><?php echo implode(',',getDatabase()); ?></td>
+	</tr>
+	<tr>
+    <td>图像扩展</td>
+    <td>gd2</td>
+    <td>gd2</td>
+    <td><?php echo gdVersion(); ?></td>
+	</tr>
+	<tr>
+    <td>Curl扩展</td>
+    <td>curl</td>
+    <td>curl</td>
+    <td><?php echo getCurlstate(); ?></td>
+	</tr>
+</table>
+ 
+<table class="datatable">
+	<tr>
+    <th scope="col"></th>
+    <th scope="col">目录可写检查</th>
+    <th scope="col">当前状态</th>
+   	</tr>
+	<tr>
+	<td>./</td>
+    <td>需要可写</td>
+    <td><?php if(is_writable(APP_PATH.'/')){echo '可写';}else{echo '不可写,无法创建配置文件';}?></td>
+	</tr>
+	<tr>
+	<td>./tmp</td>
+    <td>需要可写</td>
+    <td><?php echo ckeckwrite(dir_writeable(APP_PATH.'/tmp'));?></td>
+	</tr>
+	<td>./avatar</td>
+    <td>需要可写</td>
+    <td><?php echo ckeckwrite(dir_writeable(APP_PATH.'/avatar'));?></td>
+	</tr>
+	<td>./attachs</td>
+    <td>需要可写</td>
+    <td><?php echo ckeckwrite(dir_writeable(APP_PATH.'/attachs'));?></td>
+	</tr>
+</table>
+<table class="datatable">
+	<tr>
+    <th scope="col">将以下几个文件夹的web访问权利,并将其转向至404界面</th>
+    <th scope="col">建议</th>
+	</tr>
+	<tr>
+	<td>./controller</td>
+    <td>取消WEB访问</td>
+	</tr>
+	<tr>
+	<td>./model</td>
+    <td>取消WEB访问</td>
+	</tr>
+	<tr>
+	<td>./init</td>
+    <td>取消WEB访问</td>
+	</tr>
+	<tr>
+	<td>./tmp</td>
+    <td>取消WEB访问</td>
+	</tr>
+	</table>
+
+</div>
+</div>
+
+	<div class="buttonbox">
+		<a href="index.php?step=2">我拒绝</a>
+		<a href="index.php?step=4">确认无警告 继续安装</a>
+	</div>
+
+<div id="footer">©2011 Powered by<a href="http://yunbian.cc"> 微糗事</a></div>	
+
+</div>
+</div>
+</body>
+</html>

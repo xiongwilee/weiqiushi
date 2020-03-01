@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>微糗事系统安装向导</title>
+<link href="image/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+ <form id="form1" name="form1" method="post" action="?step=run">
+<table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <th width="420" height="100" align="left" valign="top" scope="col"><img src="image/logo.png"  alt="logo" /></th>
+    <th width="480" align="left" valign="middle" scope="col"> * 从旧系统升级</th>
+  </tr>
+  <tr>
+    <td colspan="2" align="left" scope="col"><table width="100%" cellspacing="1" border="0" bgcolor="#3366CC" align="center"  style="box-shadow:0 0 5px #06C;">
+      <tbody>
+        <tr>
+          <td class="message"><li>您好，您目前的系统版本是 <strong><?Php echo $version;?></strong>(此版本为系统文件版本,并不代表数据库版本)</li>
+            <li>该功能可以将您的系统升级到以下版本，请在升级前备份数据库！！！！升级如出现问题造成数据损失本系统概不负责。</li>
+            <li>在一般情况下升级时您需要将所有程序文件上传到服务器，当然除了config.php、 attachs、avatar目录是您的存档目录不需要覆盖。</li>
+            <li>根据升级文件的文档您可能会修改config.php部分内容，请阅读升级帮助。</li>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+      <?php if($err != '') { ?>
+      <div style="height:10px"></div>
+      <table width="100%" cellspacing="1" border="0" bgcolor="#FFD2D3" align="center"  style="box-shadow:0 0 5px #06C;">
+        <tbody>
+          <tr>
+            <td class="message"><?php echo $err; ?></td>
+          </tr>
+        </tbody>
+      </table>
+      <?php  } ?>
+
+      <table class="form-table">
+        <tbody>
+
+
+          <tr>
+            <th scope="row">请选择要升级的版本</th>
+            <td></td>
+            <td>注意仅能一个版本一个版本升级，不能跨版本升级</td>
+          </tr>
+          <tr>
+            <th colspan="3" scope="row">
+              <select name="upfile" id="select" style="padding:15px; font-size:24px; line-height:2em">
+              <option value="0">请选择要升级的版本</option>
+              <?php foreach($versiondata as $k=>$d){ ?>
+                <option value="<?php echo $k; ?>"> <?php echo $d; ?></option>
+              <?php } ?>
+              </select>
+            </th>
+          </tr>
+
+
+        </tbody>
+      </table>
+
+      <table class="form-table">
+      </table>
+      <div style="height:10px"></div></td>
+  </tr>
+  <tr>
+    <th height="102" colspan="2" align="right" valign="middle" scope="col">
+      <input type="submit" name="button" id="button" value="开始升级，升级前注意备份数据库"  class="input"/>
+
+    </th>
+  </tr>
+</table>
+</form>
+<div align="center" style="font-size:12px; margin-top:10px">
+Powered by <a href="http://weiqiushi.com">微糗事 Open source </a> 2010-2011 
+</div>
+</body>
+</html>

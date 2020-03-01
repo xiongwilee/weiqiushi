@@ -1,0 +1,10 @@
+User-agent: * 
+Disallow: /avatar/ 
+Disallow: /attachs/ 
+Disallow: /init/
+Disallow: /install/ 
+Disallow: /model/ 
+Disallow: /tpl/
+Disallow: /index.php?c=main&a=user
+Disallow: /index.php?c=blog&a=likes
+Disallow: /index.php?c=blog&a=tuijian

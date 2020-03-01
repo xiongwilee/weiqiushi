@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>微糗事安装向导</title>
+<link href="image/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<?php
+if( $err == 'ok')
+{
+	$step = 6;
+}else{
+	$step = 5;
+}
+?>
+
+<form action="index.php?step=<?php echo $step ?>" method="post">
+
+<div id="wrapper">
+<div id="container">
+
+	<div id="header">
+		<div class="logo"><img src="image/logo.png" alt="logo"></img></div>
+		<div class="type"><img src="image/check.png"alt="checkimg"></img></div>
+	</div>
+
+	<div class="leftbox"><img src="image/notic.png"alt="noticimg"></img></div>
+	<div class="rightbox">
+	<div class="title">这一步将安装操数据库,请在下方输入数据库相关信息。若您不清楚，请咨询主机提供商。</div>
+	</div>
+
+<div class="conbox">
+<div class="license">	
+
+<div class="message">
+       <?php if($err != '') { ?>
+       <?php echo $err; ?>
+       <?php  } ?>
+</div>
+        
+
+<table class="check">
+		
+<tr>
+<th scope="row"><label for="dbhost">数据库主机</label></th>
+<td><input type="text" value="<?php echo postDefault('host','localhost'); ?>" size="25" id="dbhost" name="host" class="ipt"/></td>
+<td>通常情况下，应填写 localhost，若测试连接失败，<br/>请联系主机提供商咨询。</td>
+</tr>
+
+<tr>
+<th scope="row"><label for="dbname">数据库名</label></th>
+<td><input type="text" value="<?php echo postDefault('name','yunbian'); ?>" size="25" id="dbname" name="name" class="ipt"/>
+<br/>库不存在试图创建<input name="creatdb" type="checkbox" id="creatdb" value="1" checked="checked"/></td>
+<td>您希望 yunbian 使用哪个数据库运行？</td>
+</tr>
+
+<tr>
+<th scope="row"><label for="uname">用户名</label></th>
+<td><input type="text" value="<?php echo postDefault('user','root'); ?>" size="25" id="uname" name="user" class="ipt"/></td>
+<td>您的 MySQL 用户名</td>
+</tr>
+		
+<tr>
+<th scope="row"><label for="pwd">密码</label></th>
+<td><input type="password" size="25" id="pwd" name="pwd" value="<?php echo postDefault('pwd',''); ?>" class="ipt"/></td>
+<td>... 以及 MySQL 密码。</td>
+</tr>
+
+<tr>
+<th scope="row"><label for="prefix">表名前缀</label></th>
+<td><input type="text" size="25" value="<?php echo postDefault('pre','th_'); ?>" id="prefix" name="pre" class="ipt"/></td>
+<td>若您希望在一个数据库中存放多个 yunbian 的数据，<br/>请修改本项以做区分。</td>
+</tr>
+
+<tr>
+<th scope="row">数据驱动</th>
+<td><select name="driver" id="driver" style="width:200px">
+<option value="noselect">请选择您支持的扩展</option>
+<?php foreach (getDatabase() as $d){
+if($d == $_POST['driver'])
+{
+$sele = ' selected="selected"';
+}else{
+$sele ='';
+}
+?>
+<option value="<?php echo $d;?>" <?php echo $sele; ?>> <?php echo $d;?> </option>
+<?php } ?>
+</select></td>
+<td>请选择您支持的扩展，目前支持MySQL、MySQLi、<br/>MsSQL、Sqlite、Oracle，请勿选择我们不支持的扩展</td>
+</tr>
+	
+	</table>
+	</div>
+ 	</div>
+   
+	<div class="buttonbox">   
+		<a href="index.php?step=3">上一步</a>
+		
+		<?php if ($step == 6){ ?>
+		<input type="submit"  value="检查完毕,开始安装" />
+
+		<?php }else { ?>
+		<input type="submit" value="测试数据库配置" />
+
+		<?php } ?>
+	</div>
+
+
+
+<div id="footer">©2011 Powered by<a href="http://yunbian.cc"> 微糗事</a></div>	
+
+</div>
+</div>
+</form>
+</body>
+</html>

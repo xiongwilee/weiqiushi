@@ -1,0 +1,47 @@
+<div class="clear"></div>
+</div>
+
+
+<div class="all">
+    <div id="footer">
+     <div id="copy">
+     <a href="{spUrl c=site a=about}">关 于</a><span>|</span>
+      <a href="{spUrl c=site a=help}">帮 助</a> <span>|</span>
+      <a href="{spUrl c=site a=call}">联 系</a> <span>|</span>
+      <a href="{spUrl c=site a=service}">条 款</a> <span>|</span>
+      <a href="{spUrl c=site a=privacy}">隐 私</a> <span>|</span>
+      <a href="http://wilee.me" target="_blank">Powered by {$yb.soft} <b>{$yb.version}</b> </a>&nbsp;2011-2012 {$yb.site_icp} {$yb.site_count}</div>
+
+      <div class="clear"></div>
+    </div>
+
+    <script type="text/javascript">
+
+        function postToWb(t,url){
+            var _t = encodeURI(t);
+            var _url = encodeURIComponent('http://'+document.domain+url);
+            var _assname = encodeURI("anythink");
+            var _appkey = encodeURI("c45ec3357f12483ebeeff1c14d5e76b5");//你从腾讯获得的appkey
+            var _site = document.location;//你的网站地址
+            var _u = 'http://v.t.qq.com/share/share.php?url='+_url+'&appkey='+_appkey+'&site='+_site+'&title='+_t+'&assname='+_assname;
+            window.open( _u,'', 'width=700, height=680, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no' );
+        }
+
+
+    </script>
+
+
+
+	</div>
+
+ </div>
+</div>
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=slide&amp;img=5&amp;uid=744371" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+	document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
+</script>
+<!-- Baidu Button END -->
+</body>
+</html>

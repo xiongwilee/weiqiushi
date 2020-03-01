@@ -1,0 +1,17 @@
+td { font-family: "宋体", "Tahoma", "Verdana"; font-size: 12px; color: #201F1C; line-height: 140%} 
+a:link { color: #201F1C;text-decoration: none}
+a:visited { color: #201F1C;text-decoration: none}
+a:hover { color: #201F1C; text-decoration: none} 
+p { font-family: "宋体", "Tahoma", "Verdana"; font-size: 12px; line-height: 140%; color: #201F1C} 
+.an { color: #201F1C; border: 1px #201F1C solid; font-family: "宋体", "Tahoma", "Verdana"; font-size: 12px; line-height: 120%; text-decoration: none; background-color: #201F1C  font-family: "宋体", "Verdana", "Arial", ; font-size: 12px; text-decoration: none; color: #201F1C} 
+.EFONT { font-family: "Verdana","Arial", "宋体", "sans-serif"; font-size: 10px; text-decoration: none; clip: rect( ); height: 14; line-height: 140%} 
+.button { font-family: "宋体", "Tahoma", "Verdana"; font-size: 12px; line-height: 120%; color: #cccccc; text-decoration: none; height: 18; border: 1px #201F1C solid; text-align: center; clip: rect( ); width: 40; font-weight: lighter; background-color: #201F1C;.font-family: "宋体", "Tahoma", "Verdana"; font-size: 12px; text-decoration: none}
+ .border { border-color: black black #201F1C; border-style: solid; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; 
+border-left-width: 0px}
+ .border2 { border-color: black black #201F1C; border-style: solid; border-top-width: 1px; border-right-width: 0px; border-bottom-width: 0px; 
+border-left-width: 0px}
+ .border3 { border-color: black black #201F1C; border-style: dashed; border-top-width: 0px; border-right-width: 1px; border-bottom-width: 0px; 
+border-left-width: 1px} 
+.font3 a { color: #201F1C;text-decoration: none}
+.font3 a:visited { color: #201F1C;text-decoration: none}
+.font3 a:hover { color: #201F1C; text-decoration: none} 

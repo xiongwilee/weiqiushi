@@ -1,0 +1,151 @@
+<!--右侧菜单组件-->
+
+
+	{if $inindex}
+	<div class="select">
+		<div class="nav">
+		<h2 class="nav_all"><a href="{spUrl c=main a=index}">所有糗事</a></h2>
+		<ul>
+			<li><a href="{spUrl c=main a=index nav=1}" class="select1{if $type=='1'} nav_current1{/if}">只有文字</a></li>
+			<li><a href="{spUrl c=main a=index nav=3}" class="select2{if $type=='3'} nav_current2{/if}">只有图片</a></li>
+			<li><a href="{spUrl c=main a=index nav=2}" class="select3{if $type=='2'} nav_current3{/if}">只有音频</a></li>
+			<li><a href="{spUrl c=main a=index nav=4}" class="select4{if $type=='4'} nav_current4{/if}">只有视频</a></li>
+		</ul>
+		</div>
+		<div class="taxis">
+		<h2 class="nav_all"><a href="{spUrl c=main a=index}">默认排序</a></h2>
+		<ul>
+			<li><a href="{spUrl c=main a=index taxis=1}" class="select5{if $taxis=='1'} nav_current5{/if}">按时间排序</a></li>
+			<li><a href="{spUrl c=main a=index taxis=2}" class="select6{if $taxis=='2'} nav_current6{/if}">按热度排序</a></li>
+		</ul>
+		</div>
+	</div>
+	<div class="clear"></div>
+	{/if}
+
+{if $smarty.session.uid !=''}
+
+
+  {if !$in_tagindex}
+
+	{if $inuser}
+	<div id="user_nav">
+		<ul>
+	    <li {if $CurrentModule=='index'}class="current"{/if}><a href="{spUrl c=main a=user}">首页</a></li>
+	    <li {if $CurrentModule=='recommend'}class="current"{/if}><a href="{spUrl c=main a=recommend}">推荐</a></li>
+	    <li {if $CurrentModule=='discover'}class="current"{/if}><a href="{spUrl c=main a=discovery}">发现</a></li>
+	    <li {if $CurrentModule=='now'}class="current"{/if}><a href="{spUrl c=main a=now}">此刻</a></li>
+	    <!--<li><a href="{$url}/group.php"  target="_blank">论坛</a></li>-->
+		</ul>
+	</div>
+	{/if}
+
+  <div id="sidetop">
+    <div class="myfollow"><a href="{spUrl c=user a=myfollow}">我关注{$user.flow}个糗友</a></div>
+    <div class="showfollow"><a href="{spUrl c=user a=myfollow}">管理我的关注</a></div>
+   </div>
+
+    <div id="dasbard">
+        <div class="item"><a href="{spUrl c=user a=mylikes}">我的最爱</a><span>{$user.likenum}</span></div>
+        <div class="item"><a href="{spUrl c=user a=mypost}">我的糗事</a><span>{$user.num}</span></div>
+         <div class="item"><a href="{spUrl c=user a=myreplay}">我回复的</a></div>
+    </div>
+  {/if}
+
+
+    {if $in_tagindex}
+
+         {if $favatag}
+             <div id="menu">
+             <ul>
+             {foreach from=$favatag item=d}
+             	{if $d.tag.title == $tagname}
+                <li class="current"><a href="{spUrl c=blog a=tag tag=$d.tag.title}" title="最近更新{ybtime time=$d.tag.updates}">{$d.tag.title}</a><span>{if $d.tag.num}({$d.tag.num}){/if}</span></li>
+                {else}
+                <li><a href="{spUrl c=blog a=tag tag=$d.tag.title}" title="最近更新{ybtime time=$d.tag.updates}">{$d.tag.title}</a><span>{if $d.tag.num}({$d.tag.num}){/if}</span></li>
+                {/if}
+			<div class="clear"></div>
+            {/foreach}
+            <li class="end"><a href="{spUrl c=main a=user}" title="返回个人中心">返回个人中心</a></li>
+            </ul>
+			<div class="clear"></div>
+            </div>
+            {else}
+             <div id="menu">
+              <li class="end"><a href="{spUrl c=main a=recommend}">没有关注标签,发现一下吧</a></li>
+              <div class="clear"></div>
+            </div>
+         {/if}
+    {else}
+    	{if $favatag}
+             <div id="menu">
+             <ul>
+             {foreach from=$favatag item=d}
+              <li><a href="{spUrl c=blog a=tag tag=$d.tag.title}" title="最近更新{ybtime time=$d.tag.updates}">{$d.tag.title}</a> <span>{if $d.tag.num}({$d.tag.num}){/if}</span></li>
+            {/foreach}
+
+             <li class="end"><a href="{spUrl c=blog a=tag}">查看更多标签</a></li>
+             </ul>
+            <div class="clear"></div>
+            </div>
+            {else}
+             <div id="menu">
+              <li class="end"><a href="{spUrl c=main a=recommend}">没有关注标签,发现一下吧</a></li>
+              <div class="clear"></div>
+            </div>
+        {/if}
+    {/if}
+
+	<div class="clear"></div>
+ {/if}
+
+   	<div class="welcome">
+   	<h1>欢迎访问微糗事</h1>
+    <a href="#"><img alt="" src="{$url}/tpl/image/nologin.jpg"></a>
+    <div class="footer">更多精彩，尽在微糗事·weiqiushi.com</div>
+    </div>
+
+<!--
+	<nav class="list">
+	   	 <h1>推荐阅读  <span>  </span> <a id="rec_focusTa" href="javascript:void(0)">关注Ta</a>  转发</h1>
+	    <a href="#"><img width="250" alt="" src=""></a>
+	     <footer><a href="#">看看Ta的作品</a></footer>
+    </nav>
+-->
+
+<!--
+	<nav class="list">
+	   	 <h1>音乐推荐  <span>  </span> <a id="rec_focusTa" href="javascript:void(0)">关注Ta</a>  转发</h1>
+	    <embed width="250" height="62" type="application/x-mplayer2"src=""></embed>
+	     <footer><a href="#">看看Ta的作品</a></footer>
+    </nav>
+ -->
+<div id="box_float">
+<div id="float_sidebar" class="div1 div2">
+	<div id="aside_bottom">
+		<a class="totop" href="#" title="回到顶部"></a>
+		<a class="wap" href="#" title="手机访问"></a>
+		<a class="rss" href="#" title="RSS订阅"></a>
+	</div>
+</div>
+</div>
+
+{literal}
+<script>
+$(function(){
+    var oDiv=document.getElementById("float_sidebar");
+    var H=0,iE6;
+    var Y=oDiv;
+    while(Y){H+=Y.offsetTop;Y=Y.offsetParent};
+    iE6=window.ActiveXObject&&!window.XMLHttpRequest;
+    if(!iE6){
+        window.onscroll=function()
+        {
+            var s=document.body.scrollTop||document.documentElement.scrollTop;
+            if(s>H){oDiv.className="div1 div2";if(iE6){oDiv.style.top=(s-H)+"px";}}
+            else{oDiv.className="div1";}
+        };
+    }
+})();
+</script>
+{/literal}

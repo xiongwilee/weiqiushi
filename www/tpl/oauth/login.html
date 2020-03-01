@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$yb.site_title} - 连接{$app}</title>
+<link rel="stylesheet" type="text/css" media="screen" href="{$url}/tpl/image/css/ajaxfrom.css" />
+{literal} 
+<script>
+function dosubmit()
+{
+	document.getElementById('submit_button').style.display = 'none';
+	document.getElementById('submit_tip').style.display = 'inline';
+}
+
+
+</script>
+{/literal} 
+</head>
+
+<body>
+<form action="" method="post">
+   
+    <fieldset>
+     <h3>{$quser.nickname}您在使用{$app}账号登陆</h3>
+     {if $type != 'login'}
+     
+         <div class="linkselect"><a href="{spUrl c=openconnect a=$app login=yes type=login}" >我已经有{$yb.site_title}账号,直接绑定</a> | 我还没有,帮我注册一个吧</div>
+        <div>
+          <label for="email">邮箱</label>
+          <input name="email" type="text" id="email" size="25" maxlength="50" value="{if $smarty.post.email}{$smarty.post.email}{else}{$email}{/if}" class="ipt" tabindex="1" />
+          {verifierMsg set=$errmsg_arr in=email msg='最多30字符'} </div>
+           <div class="filed" style="margin-bottom:0px"><label class="nocontent">昵称</label>
+              <input type="text"  name="username"  size="25"  class="ipt" tabindex="4" value="{$user.nickname}" title="请输入昵称">
+             {verifierMsg set=$errmsg_arr in=username msg='请输入昵称'}</div></div>
+          
+          
+         <div>
+          <label for="password">密码</label>
+          <input name="password" type="password" id="password" size="25" value="{$smarty.post.password}" class="ipt"  tabindex="2"/>
+          {verifierMsg set=$errmsg_arr in=password msg='输入您的密码'} </div>
+          
+          <div>
+          <label for="password">重复密码</label>
+          <input name="password2" type="password" id="password2" size="25" value="{$smarty.post.password}" class="ipt"  tabindex="3"/>
+          {verifierMsg set=$errmsg_arr in=password2 msg='请重复密码'} </div>
+           <div style="height:15px">使用{$app}头像作为我的默认头像 <input name="face" type="checkbox" value="1" checked="checked" /></div>
+	{else}
+         <div class="linkselect">我已经有{$yb.site_title}账号,直接绑定 | <a href="{spUrl c=openconnect a=$app login=yes}"> 我还没有,帮我注册一个吧</a></div>
+        	<div>
+          <label for="email">邮箱</label>
+          <input name="email" type="text" id="email" size="25" maxlength="50" value="{if $smarty.post.email}{$smarty.post.email}{else}{$email}{/if}" class="ipt" tabindex="1" />
+          {verifierMsg set=$errmsg_arr in=email msg='最多30字符'} </div>
+
+          <div>
+          <label for="password">密码</label>
+          <input name="password" type="password" id="password" size="25" value="{$smarty.post.password}" class="ipt"  tabindex="2"/>
+          {verifierMsg set=$errmsg_arr in=password msg='请输入密码'} </div>
+            <div style="height:15px">使用{$app}头像作为我的默认头像 <input name="face" type="checkbox" value="1" /></div>
+          
+      {/if}
+      
+        <div class="button">
+            <span id="submit_tip">正在登录...</span>
+     		 <input name="linkSubmit" type="submit" id="submit_button" class="blue-button submit"  value="好了" onclick="dosubmit('submit');" tabindex="4"/>
+        </div>
+    
+    </fieldset>
+</form>
+</body>
+</html>

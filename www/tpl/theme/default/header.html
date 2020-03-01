@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<title> {if $titles != ''} {$titles} - {/if} {$username} - {$yb.site_title} - {$yb.site_titlepre} </title>
+<meta charset="utf-8" />
+<base href="{$url}/" />
+<meta name="author" content="{$username},{$domain},yunbian.org" />
+<meta name="description" content="{if $usersign == ''}{$description|strip_tags}{else}{$usersign|strip_tags}{/if}" />
+<meta name="keywords" content="{if $usertag == ''}{$keywords}{else}{$usertag}{/if}{if $title != ''},{$title}{/if} " />
+<script type="text/javascript">
+var tplpath = '{$global_path}';
+var urlpath = '{$url}';
+</script>
+<script type="text/javascript" src="{$global_path}js/jquery.min.js"></script>
+<link href="{$global_path}image/css/reset.css" rel="stylesheet" type="text/css">
+<link href="{$global_path}image/css/frame.css" rel="stylesheet" type="text/css">
+<link href="{$global_path}image/css/gallery.show.css" rel="stylesheet" type="text/css">
+
+<link href="{$themes_path}css/style.css" rel="stylesheet" type="text/css">
+<style>{$custom_css}</style>
+
+</head>
+
+
+<body>
+<script type="text/javascript" src="{$global_path}js/dialog/dialog.js?skin=mac"></script>
+<script type="text/javascript" src="{$global_path}js/dialog/dialogTools.js"></script>
+<script type="text/javascript" src="{$url}/tpl/swf/player.js"></script>
+<script type="text/javascript" src="{$global_path}js/gallery.min.js"></script>
+<script type="text/javascript" src="{$global_path}js/gallery.global.js"></script>
+<script type="text/javascript" src="{$global_path}js/global.js"></script>
+<div id="header_bg">
+<div id="footer_bg">
+
+<div id="user_top">
+
+    {if islogin()}
+      <a href="{spUrl c=main a=index}" target="_top"><img src="{$url}/tpl/image/goback.png" width="107" height="36"></a>
+     {if $uid == $smarty.session.uid}<a href="{spUrl c=userblog a=customize}" target="_top"><img src="{$url}/tpl/image/custom.png" width="107" height="36"></a> {else}
+      <a href="javascript:void(0)" onClick="tuijian('{spUrl c=blog a=tuijian tuiuid=$uid  bid=$d.bid}')"><img src="{$url}/tpl/image/tuijian.png" width="77" height="36"></a>{/if}
+    {else}
+    <a  href="{spUrl c=main a=index}">首页</a>
+    <a href="{spUrl c=main a=login}">登陆</a>
+    <a href="{spUrl c=main a=reg}">注册</a>
+    <a href="{spUrl c=site a=about}">关于</a>
+    {/if}
+
+
+</div>

@@ -1,0 +1,91 @@
+{include file='admin/header.html'}
+  <div id="content">
+   
+    
+     <h2>数据库管理</h2>
+     <div>数据恢复请使用PHPMYADMIN的导入功能，将备份的SQL数据导入。</div>
+<form id="form1" name="form1" method="post" action="">
+      {if $get.chk}
+      <div>已检查所有表，请对有问题的表点击修复操作进行修复</div>
+      <input type="button" value="返回" onclick="window.location.href='{spUrl c=admin a=database}'"/>
+      {else}<input name="chk" type="submit" value="检查所有表" />
+      {/if}
+    |   <a href="javascript:void(0)" id="download" onclick="databseOut('{spUrl c=admin a=database ouall=yes}')">备份全部数据</a>
+      </form>  </th>
+    </tr>
+</table>
+
+    
+    
+ <h2>使用中</h2>
+	  <form id="form1" name="form1" method="post" action="">
+    <table width="100%" class="table2">
+    <tr>
+      <th align="center" valign="middle">数据表</th>
+        <th width="30" align="center" valign="middle">引擎</th>
+         <th width="70" align="center" valign="middle">字符集</th>
+         
+        <th width="50" align="center" valign="middle">占用空间</th>
+       
+        <th width="50" align="center" valign="middle">记录数</th>
+        <th width="40" align="center" valign="middle">表状态</th>
+        
+        <th width="70" align="center" valign="middle">创建时间</th>
+         <th width="70" align="center" valign="middle">更新时间</th>
+        <th width="70" align="center" valign="middle">检查时间</th>
+        
+        <th width="100" valign="middle">多余</th>
+        <th width="130" align="center"  valign="middle">操作</th>
+      </tr>
+  {foreach from=$table.rs item=d}
+    <tr>
+      <td>{$d.TABLE_NAME}{if $d.TABLE_COMMENT != ''}({$d.TABLE_COMMENT}){/if}</td>
+      <td valign="middle">{$d.ENGINE}</td>
+        <td valign="middle">{$d.TABLE_COLLATION}</td>
+        
+         <td valign="middle">{formatBytes size=$d.DATA_LENGTH}</td>
+         <td valign="middle">{$d.TABLE_ROWS}</td>
+        <td valign="middle">{if $d.ROW_FORMAT == 'Dynamic'}动态{else}静态{/if}</td>
+        
+        <td valign="middle">{ybtime time=strtotime($d.CREATE_TIME)}</td>
+        <td valign="middle">{ybtime time=strtotime($d.UPDATE_TIME)}</td>
+        <td valign="middle">{ybtime time=strtotime($d.CHECK_TIME)}</td>
+
+        <td valign="middle">{if $d.DATA_FREE !=0}{formatBytes size=$d.DATA_FREE} {else}正常 {/if}</td>
+        <td align="right" valign="middle">
+      
+        {if $d.DATA_FREE !=0}<input type="button" name="button" id="button" value="优化表" onclick="tableOp('{$d.TABLE_NAME}')" /> {/if}
+        {if $d.CHECK_TABLE  !='OK' && $d.CHECK_TABLE !='NCHECK'}
+          <input type="button" name="button" id="button" value="修复表" onclick="tableRep('{$d.TABLE_NAME}','{$d.CHECK_TABLE}')"  />
+         {/if}
+         
+         {if $d.DATA_FREE =0  || $d.CHECK_TABLE !='NCHECK' || $d.CHECK_TABLE !='OK'} 
+          <input type="button" name="button" id="tab_o_{$d.TABLE_NAME}" value="导出" onclick="outputTab('{$d.TABLE_NAME}')"  />
+           {/if}
+        </td>
+      </tr>
+  
+   {/foreach}
+   <tr>
+      <td>表总数：<strong>{$table.all_table}</strong></td>
+      <td valign="middle"></td>
+        <td align="right" valign="middle">占用空间：</td>
+        
+         <td valign="middle">{formatBytes size=$table.all_byte}</td>
+         <td valign="middle">&nbsp;</td>
+        <td valign="middle">&nbsp;</td>
+        
+        <td valign="middle">&nbsp;</td>
+      <td valign="middle">&nbsp;</td>
+        <td align="right" valign="middle">多余:</td>
+        <td valign="middle">{formatBytes size=$table.all_free}</td>
+        <td valign="middle"></td>
+      </tr>
+    </table>
+    </form>
+
+    
+    
+   
+  </div>
+{include file='admin/footer.html'}

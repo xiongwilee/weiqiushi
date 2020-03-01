@@ -1,0 +1,51 @@
+{include file="reglogin_header.html"}
+<div id="relogin_body">
+<div class="form">
+       <form action="{spUrl c=main a=reg}" method="post">
+        <div id="regarea">
+              <h1>注册{$yb.site_title}账号</h1>
+              {if $errmsg}
+                <div id="errmsg">{$errmsg}</div>
+              {/if}
+
+              <div class="filed"><label class="nocontent">邮箱</label>
+              	<input type="text"  name="email" class="input" tabindex="1" value="{$smarty.post.email}" title="请使用自己邮箱,使用他人邮箱被举报将会删除该账号">
+                </div><div class="clear"></div>
+              <div class="filed"><label class="nocontent">密码</label>
+              <input type="password"  name="password" class="input" tabindex="2" value="{$smarty.post.password}" title="请输入密码"></div><div class="clear"></div>
+              <div class="filed"><label class="nocontent">重复</label>
+              <input type="password"  name="password2" class="input" tabindex="3" value="{$smarty.post.password2}" title="请重复输入密码"></div><div class="clear"></div>
+              <div class="filed" style="margin-bottom:0px"><label class="nocontent">昵称</label>
+              <input type="text"  name="username" class="input" tabindex="4" value="{$smarty.post.username}" title="请输入昵称"></div><div class="clear"></div>
+
+
+              {if $yb.regCodeSwitch !='close'}
+            <div class="filed" style="margin:0px">
+            <label class="nocontent"><img src="{spUrl c=main a=vcode t=$time}" class="vericode"  onclick="javascript:reloadcode(this,this.src);" title="看不清楚，换一张" style="cursor:pointer;" /></label>
+            <input name="verifycode" type="text" id="verifycode"  class="input" size="8" maxlength="4"  /></div><div class="clear"></div>
+            {/if}
+
+               <div class="filed"><label class="nocontent"></label>
+               <input class="regBtn" type="button" name="do"  value="" tabindex="5" onClick="checkReg()" /><span class="regcurr"></span></div><div class="clear"></div>
+        </div>
+        <input type="hidden" name="doing" value="true" />
+        <input type="hidden" value="{$callback}" name="callback">
+        </form>
+</div>
+<div class="remember"><span><a href="{spUrl c=site a=service}" target="_blank">注册将视为您同意服务条款</a></span> </div>
+ {if $yb.openlogin_qq_open == 1 || $yb.openlogin_weib_open == 1}
+  <div id="openconnent" >
+  <h1>用合作账户登陆</h1>
+  <div id="area">
+      {if $yb.openlogin_qq_open == 1}
+      <li><a href="javascript:void(0)" onClick="openconnect('{spUrl c=openconnect a=qq}')"><img src="tpl/image/qq_login.png" border="0" style="margin-top:10px"/></a></li>
+      {/if}
+      {if $yb.openlogin_weib_open == 1}
+      <li> <a href="javascript:void(0)" onClick="openconnect('{spUrl c=openconnect a=weibo}')"><img src="tpl/image/weib_login.png" border="0" style="margin-top:10px"/></a></li>
+      {/if}
+  <div class="clear"></div>
+  </div>
+  </div>
+   {/if}
+   </div>
+{include file="reglogin_footer.html"}

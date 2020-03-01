@@ -1,0 +1,52 @@
+{include file='admin/header.html'}
+  <div id="content">
+
+    
+ <h2>用户主题管理</h2>
+ <h3><a href="{spUrl c=admin a=theme}">全部主题</a> | <a href="{spUrl c=admin a=theme filter=close}">已禁用</a> | 
+    <a href="{spUrl c=admin a=theme filter=open}">已启用</a> | <a href="{spUrl c=admin a=theme filter=exclusive}">专属主题</a>
+   </h3>
+    <div id="setup">
+    <br />
+    <form id="form1" name="form1" method="post" action="{spUrl c=admin a=theme m=install}">
+        <div>请将新主题文件夹上传至 tpl/theme/ 目录下</div>
+        请输入新主题所在的目录：<input name="installdir" type="text" /><input type="submit" name="button" id="button" value="提交" />
+    </form>
+    </div>
+    
+	  <div class="nav">{$pager}</div>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table2">
+  <tr>
+    <th width="200">主题截图</th>
+    <th width="120">名称</th>
+    <th width="120">目录</th>
+    <th width="120">作者</th>
+    <th width="80">版本</th>
+    <th width="80">启用</th>
+    <th width="60">专属主题</th>
+    <th>操作</th>
+  </tr>
+  {foreach from=$skins item=d}
+  <tr>
+    <td><img src="{$url}/tpl/theme/{$d.skindir}/cover.jpg" width="200" height="120" /></td>
+    <td>{$d.name}({$d.usenumber})</td>
+    <td>{$d.skindir}</td>
+    <td>{$d.author}</td>
+    <td>{$d.version}</td>
+    <td>{if $d.open == 1}已启用{else}已关闭{/if}</td>
+    <td>{if $d.exclusive == 0} 否{else} 指派：{$d.exclusive} {/if}</td>
+     <td><a href="{spUrl c=admin a=theme m=info id=$d.id}">详情</a> / <a href="javascript:void(0)" onclick="unInstallTheme({$d.id})">卸载</a></td>
+  </tr>
+  {/foreach}
+</table>
+
+    
+
+    
+    <div class="nav">{$pager}</div>
+    
+    
+    
+   
+  </div>
+{include file='admin/footer.html'}

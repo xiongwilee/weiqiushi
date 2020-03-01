@@ -1,0 +1,40 @@
+{include file="require_header.html" titlepre=$tagname  gallery=yes}
+
+<div class="all">
+<div class="container">
+
+<div id="article">
+{if is_array($tag)}
+<h1 style="margin:15px 0px"><a href="{spUrl c=blog a=tag tag=$tagname}" class="current">#{$tagname}#</a>
+
+<a href="javascript:void(0)" onclick="addMytag('{$tagname}','{spUrl c=blog a=addMytag}')" id="flowTag">关注该标签</a>
+</h1>
+{/if}
+<div id="feedArea">
+{include file="require_feeds.html" data=$tag limits=4}
+</div>
+
+{if !is_array($tag)}
+ <div class="box">
+    	 <div class="content"> 没有找到内容,请在右侧选择一个您关注度的标签 </div>
+    </div>
+{/if}
+
+
+{if $tag}
+<div class="nav">{$pager}</div>
+{/if}
+
+
+</div>
+
+
+
+
+<div id="aside">
+   {include file="require_sider.html" in_tagindex=true}
+</div>
+<div class="clear"></div>
+</div>
+</div>
+{include file="require_footer.html"}

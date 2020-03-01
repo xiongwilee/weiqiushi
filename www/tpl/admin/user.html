@@ -1,0 +1,61 @@
+{include file='admin/header.html'}
+  <div id="content">
+   
+    
+     <h2>搜索</h2>
+    <form id="form1" name="form1" method="post" action="">
+    <table width="100%" class="table">
+
+      <tr>
+        <td width="25%">用户邮箱、用户昵称、用户域名</td>
+        <td valign="middle"><input name="where" type="text" value="{$get.niname}"/></td>
+      </tr>
+    </table>
+    
+   <input name="submit" type="submit" value="搜索" />
+    </form>
+    
+ <h2>用户列表，共 {$countuser} 名会员</h2>
+	  <div class="nav">{$pager}</div>
+    <table width="100%" class="table2">
+    <tr>
+
+        <th width="30" align="center" valign="middle">UID</th>
+         <th width="120" align="center" valign="middle">账号</th>
+        <th width="40" align="center" valign="middle">访问</th>
+       
+        <th width="140" align="center" valign="middle">昵称</th>
+        <th width="100" align="center" valign="middle">注册</th>
+        <th width="100" align="center" valign="middle">登陆</th>
+        <th width="40" align="center" valign="middle">发布</th>
+        <th width="40" align="center"  valign="middle">跟随</th>
+        <th width="40" align="center"  valign="middle">喜欢</th>
+        <th  align="center" valign="middle">&nbsp;</th>
+      </tr>
+  {foreach from=$user item=d}
+    <tr>
+      <td>{$d.uid}</td>
+            <td valign="middle"><a href="{goUserHome domain=$d.domain uid=$d.uid}" target="_blank">{$d.email}</a></td>
+        <td valign="middle">{if $d.open == 1}允许{else}禁止{/if}</td>
+        <td valign="middle">{$d.username}</td>
+        <td valign="middle">{ybtime time=$d.regtime}</td>
+        <td valign="middle">{ybtime time=$d.logtime}</td>
+        <td valign="middle">{$d.num}</td>
+        <td valign="middle">{$d.flow}</td>
+        <td valign="middle">{$d.likenum}</td>
+       	<td valign="middle">{if $d.admin == 1}管理员{/if} <a href="{spUrl c=admin a=user mod=info uid=$d.uid}">详情</a> | 
+        <a href="javascript:;" onclick="nologin({$d.uid})">{if $d.open == 1}禁访{else}解禁{/if}</a>
+       | <a href="javascript:resetpwd({$d.uid},'{$d.username}')">重设密码</a></td>
+      </tr>
+   {/foreach}
+    </table>
+    
+
+    
+    <div class="nav">{$pager}</div>
+    
+    
+    
+   
+  </div>
+{include file='admin/footer.html'}

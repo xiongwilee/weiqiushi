@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>yunbian - Administrator Control panel</title>
+<script>var urlpath = '{$url}'</script> 
+<script type="text/javascript" src="{$url}/tpl/js/jquery.min.js"></script>
+<script type="text/javascript" src="{$url}/tpl/js/dialog/dialog.js?skin=mac"></script>
+<script type="text/javascript" src="{$url}/tpl/js/dialog/dialogTools.js"></script>
+<script type="text/javascript" src="{$url}/tpl/admin/style/global.js"></script>
+
+<link href="{$url}/tpl/image/css/reset.css" rel="stylesheet" type="text/css">
+<link href="{$url}/tpl/admin/style/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="wrap">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="137"><img src="{$url}/tpl/admin/style/logo.png" width="173" height="87" alt="yunbian os" /></td>
+      <td class="menuline"><div class="menu">
+          <ul>
+            <li><a href="{spUrl c=admin a=index}" {$curr_index}>首页</a></li>
+            <li><a href="{spUrl c=admin a=system}" {$curr_system}>系统管理</a> </li>
+            <li><a href="{spUrl c=admin a=blog}" {$curr_blog}>内容管理</a> </li>
+            <li><a href="{spUrl c=admin a=user}" {$curr_user}>用户管理</a></li>
+            <li><a href="{spUrl c=admin a=theme}" {$curr_theme}>主题管理</a></li>
+            <li><a href="{spUrl c=admin a=database}" {$curr_database}>数据管理</a></li>
+            <li><a href="{spUrl c=main}">返回首页</a></li>
+          </ul>
+        </div></td>
+    </tr>
+  </table>
+ 
+   {if isset($get.ac)} <script>showprccmsg('{$get.ac}')</script> {/if}

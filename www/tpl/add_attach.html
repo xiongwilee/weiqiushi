@@ -1,0 +1,22 @@
+
+<table border="0" align="center" cellpadding="0" cellspacing="0" class="globox">
+  <tr>
+    <th width="30">ID</th>
+    <th>名称</th>
+    <th width="60">大小</th>
+    <th width="40">类型</th>
+    <th width="140">上传时间</th>
+    <th width="100">操作</th>
+  </tr>
+    {foreach from=$attach item=d}
+  <tr>
+    <td align="center">{$d.id}</td>
+    <td>{$d.blogdesc} </td>
+    <td align="center">{formatBytes size=$d.filesize}</td>
+    <td align="center">{$d.mime}</td>
+    <td align="center">{$d.time|date_format:"%Y/%m/%d %H:%M"}</td>
+    <td align="center"><a href="javascript:void(0)" onclick="iattach('{attach_insert file=$d.path name=$d.blogdesc id=$d.id}')">插入</a> / <a href="javascript:void(0)" class="mdiea_del" tag="{$d.id}">删除</a></td>
+  </tr>
+    {/foreach}
+</table>
+

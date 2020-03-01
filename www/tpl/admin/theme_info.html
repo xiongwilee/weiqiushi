@@ -1,0 +1,84 @@
+{include file='admin/header.html'}
+  <div id="content">
+
+    
+ <h2>主题编辑 - {$skin.name} {$skin.version}</h2>
+ <div style="margin:10px 0px"></div>
+ <form action="" method="post">
+ <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table2">
+  <tr>
+    <td colspan="2"><b>主题图片</b></td>
+  </tr>
+  <tr>
+    <td><span style="margin:10px 0px"><img src="{$url}/tpl/theme/{$skin.skindir}/cover.jpg" width="200" height="120" /></span></td>
+    <td>修改主题图片请上传200*120的jpg覆盖原始图片</td>
+  </tr>
+  <tr>
+    <td><b>主题开关</b></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><input type="radio" name="open"  value="1"  {if $skin.open == 1} checked="checked" {/if} />开启
+    <input type="radio" name="open"  value="0"  {if $skin.open == 0} checked="checked" {/if} />关闭</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><b>主题名称</b></td>
+    <td>&nbsp;</td>
+  </tr>
+   <tr>
+    <td><input name="name" type="text" value="{$skin.name}" /></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>主题作者</b></td>
+  </tr>
+  <tr>
+    <td colspan="2">{$skin.author}</td>
+  </tr>
+ 
+  <tr>
+    <td colspan="2"><b>主题位置</b></td>
+    </tr>
+  <tr>
+    <td width="571">{$smarty.const.APP_PATH}/tpl/theme/<input name="skindir" type="text" value="{$skin.skindir}" />&nbsp;</td>
+    <td>修改主题位置请对应的修改文件夹名称</td>
+    </tr>
+  
+  <tr>
+    <td><b>专属主题设置</b></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><input type="text" name="exclusive" id="exclusive" value="{$skin.exclusive}"/></td>
+    <td>请输入允许使用该主题的用户UID,为空则不限制</td>
+  </tr>
+  
+ 
+  <tr>
+    <td><b>主题钩子</b></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><textarea name="confswitch" id="textarea" cols="45" rows="5" style="width:100%;height:150px">{$skin.confswitch}</textarea></td>
+    <td>&nbsp;请勿任意修改</td>
+  </tr>
+  <tr>
+    <td><b>主题预定义数据</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>请使用主题制作工具编辑</td>
+    <td>&nbsp;</td>
+  </tr>
+ 
+ </table>
+ <input name="submit" type="submit" value="保存" /> 
+  <input name="submit" type="button" value="返回" onclick="window.history.go(-1)" class="submit"/>
+  <input name="submit" type="button" value="卸载主题" onclick="unInstallTheme({$skin.id})" class="submit"/>
+</form>
+    
+    
+   
+  </div>
+{include file='admin/footer.html'}

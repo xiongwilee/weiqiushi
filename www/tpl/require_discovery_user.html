@@ -1,0 +1,16 @@
+ {foreach from=$data item=d}
+    <div class="blogitem">
+     <div class="clearfix">
+    <img src="{avatar uid=$d.uid size=middle}" alt="{$d.username}" class="face"/>
+        <h5 class="title">
+       <a href="{goUserHome domain=$d.domain uid=$d.uid}" title="{$d.username}-{$d.sign|strip_tags:'<b><font><span>'}" target="_blank"> {$d.username}</a>
+        </h5>
+        </div>
+
+<div class="sign">{$d.sign|strip_tags:'<b><font><span>'}<br/>
+TA的标签:{$d.blogtag}
+</div>
+ <div style="clear:both;"> <a href="javascript:void(0)" onclick="follows('{$d.uid}','{spUrl c=blog a=follows}')">关注TA</a> | {$d.local}</div>
+<!--<span class="blogitem-new">NEW</span>-->
+    </div>
+    {/foreach}

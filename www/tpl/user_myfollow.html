@@ -1,0 +1,103 @@
+{include file="require_header.html"}
+
+<div class="all">
+<div class="container">
+{if $getfollow == 1}
+<div id="article">
+ <h1><a href="{spUrl c=user a=myfollow}"{$curr_mefor}>我关注的</a> <a href="{spUrl c=user a=myfollow follow=me}"{$curr_forme}>关注我的</a></h1>
+{foreach from=$follow item=d}
+  <div class="box" id="myfollow_{$d.meto.uid}">
+     <div class="top">
+     	<a href="{goUserHome domain=$d.meto.domain uid=$d.meto.uid}" title="{$d.meto.username}" target="_blank">
+     	<img src="{avatar uid=$d.uid size=middle}" alt="{$d.meto.username}" class="face"/></a><span class="jiao"></span>
+     </div>
+     <div class="header">
+       <cite> <a href="{goUserHome domain=$d.meto.domain uid=$d.meto.uid}" target="_blank">{$d.meto.username}</a></cite>
+       <h1>{$d.title}</h1>
+     </div>
+
+     <div class="content">
+           {$d.meto.sign|strip_tags:'<span><font>'}
+     </div>
+
+
+     <div class="footer">
+
+      <div class="menu">
+         {ybtime time=$d.time}
+        {if $d.linker == 1} 互相关注{else}<a href="javascript:void(0)" onclick="follows('{$d.meto.uid}','{spUrl c=blog a=follows}')" id="follow_{$d.meto.uid}">加关注</a>{/if}
+      </div>
+        <div class="clear"></div>
+     </div>
+
+
+
+    </div>
+   {foreachelse}
+     <div class="box" id="myfollow_{$d.meto.uid}">
+    	 <div class="content">  您还没有关注或还没有人关注您 </div>
+    </div>
+   {/foreach}
+    <div class="nav">{$pager}</div>
+</div>
+
+
+
+
+{else}
+
+
+<div id="article">
+ <h1><a href="{spUrl c=user a=myfollow}"{$curr_mefor}>我关注的</a> <a href="{spUrl c=user a=myfollow follow=me}"{$curr_forme}>关注我的</a></h1>
+{foreach from=$follow item=d}
+  <div class="box" id="myfollow_{$d.tome.uid}">
+     <div class="top">
+     	<a href="{goUserHome domain=$d.tome.domain uid=$d.tome.uid}" title="{$d.tome.username}" target="_blank">
+     	<img src="{avatar uid=$d.touid size=middle}" alt="{$d.tome.username}" class="face"/></a><span class="jiao"></span>
+     </div>
+     <div class="header">
+       <cite> <a href="{goUserHome domain=$d.tome.domain uid=$d.tome.uid}" target="_blank">{$d.tome.username}</a></cite>
+       <h1>{$d.title}</h1>
+     </div>
+
+     <div class="content">
+           {$d.tome.sign|strip_tags:'<span><font>'}
+     </div>
+
+
+     <div class="footer">
+      <div class="menu">
+        {ybtime time=$d.time}   {if $d.linker == 1}已互相关注{/if}
+         <a href="javascript:void(0)" onclick="follows('{$d.tome.uid}','{spUrl c=blog a=follows}')">  取消关注</a>
+      </div>
+        <div class="clear"></div>
+     </div>
+
+
+
+    </div>
+   {foreachelse}
+     <div class="box" id="myfollow_{$d.tome.uid}">
+    	 <div class="content">  您还没有关注或还没有人关注您 </div>
+    </div>
+   {/foreach}
+    <div class="nav">{$pager}</div>
+</div>
+
+
+
+
+{/if}
+
+
+
+
+
+
+<div id="aside">
+   {include file="require_sider.html"}
+</div>
+<div class="clear"></div>
+</div>
+</div>
+{include file="require_footer.html"}

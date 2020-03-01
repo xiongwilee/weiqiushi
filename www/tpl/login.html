@@ -1,0 +1,56 @@
+{include file="reglogin_header.html"}
+<div id="relogin_body">
+	<div class="form">
+	<h1>登陆{$yb.site_title}网</h1>
+          <form action="{spUrl c=main a=login}" method="post" onSubmit="return checkLogin()">
+        {if $errmsg}
+        <div id="errmsg">{$errmsg}</div>
+        {/if}
+                <input type="hidden" value="{$callback}" name="callback">
+                <input type="hidden" value="" name="formKey">
+                <div id="loginarea">
+                    <div class="filed">
+                    	<label for="email" class="nocontent">邮箱</label>
+                        <input tabindex="1" type="text" id="email" name="email" class="input" tabindex="1" value="{if $smarty.post.email}{$smarty.post.email}{else}{$email}{/if}">
+                    </div>
+                    <div class="filed">
+                    	<label for="password" class="nocontent">密码</label>
+                    	<input tabindex="2" type="password" id="password" class="input" value="{$smarty.post.password}" name="password" >
+                    </div>
+                    <div class="filedBtn"><input class="subBtn" type="submit" name="submit"  value="&nbsp;" /></div><div class="clear"></div>
+                    <table width="400" border="0" cellspacing="0" cellpadding="0" class="remember">
+                      <tr>
+                        <td width="190"> <input name="savename" type="checkbox" id="savename" value="1" checked="checked" title="保存账号"/><label for="savename" >记住账号</label></td>
+                        <td  align="left" valign="middle">  <a href="#">忘记密码?</a></td>
+                      </tr>
+                    </table>
+                   {if $yb.loginCodeSwitch != 'close'}
+                    <table width="400" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="195">
+                        <div class="filed"><label for="verifycode" class="nocontent">验证码</label><input type="text" id="verifycode" class="input"  name="verifycode" tabindex="3"></div></td>
+                        <td width="205" align="left" valign="middle">
+                        <img src="{spUrl c=main a=vcode t=$time}" class="vericode" onClick="javascript:reloadcode(this,this.src);" title="看不清楚，换一张" style="cursor:pointer;" /></td>
+                      </tr>
+                    </table>
+                   {/if}
+             </div>
+
+       {if $yb.openlogin_qq_open == 1 || $yb.openlogin_weib_open == 1}
+      <div id="openconnent">
+      <h1>用合作账户登陆</h1>
+          <div id="area">
+              {if $yb.openlogin_qq_open == 1}
+              <li><a href="javascript:void(0)" onClick="openconnect('{spUrl c=openconnect a=qq}')"><img src="tpl/image/qq_login.png" border="0" style="margin-top:10px"/></a></li>
+              {/if}
+              {if $yb.openlogin_weib_open == 1}
+              <li> <a href="javascript:void(0)" onClick="openconnect('{spUrl c=openconnect a=weibo}')"><img src="tpl/image/weib_login.png" border="0" style="margin-top:10px"/></a></li>
+              {/if}
+          </div>
+          <div class="clear"></div>
+      </div>
+       {/if}
+          </form>
+	</div>
+</div>
+{include file="reglogin_footer.html"}

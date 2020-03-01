@@ -1,0 +1,130 @@
+@charset "utf-8";
+/* CSS Document */
+
+   .welcome .box{ background-color:#425E6F; position:relative; margin:1px; width:149px; height:149px; overflow:hidden; border-radius:5px; float:left; }
+   .welcome .box a{text-decoration:none}
+   .welcome .boxhover{width:149px; height:149px; position:absolute; left:0px; top:0px; background-color:#000; background-color:rgba(0,0,0,0.7); display:none; }
+	.welcome .boxhover .img{text-align:center; margin-top:38px}
+	.welcome .boxhover .img img{border-radius: 5px;}
+	.welcome .boxhover .p{text-align:center; margin-top:5px; font-weight:bold}
+	.welcome .video{position:absolute;text-align:center; top:50px; left:50px;}
+	.welcome .music{ max-width:149px;}
+	.welcome .logo{width:568px;height:180px; background:url(../logo_big.png) no-repeat #FFF;position:relative}
+	.welcome .loginmenu{position:absolute; right:0px; padding:5px 40px 5px 0px; top:120px; font-size:20px;}
+	.welcome .textcontents{font-size:14px; line-height:1.5em; padding:5px;}
+	.welcome .mediadesc{ font-size:14px}
+	.welcome .userInfo{position:absolute;width:149px; padding:30px 40px; height:149px; background-color:#000; background:rgba(0,0,0,0.7);display:none;}
+	.welcome .userInfo a{color:#FFF}
+	.welcome .info{ padding:10px}
+	.welcome .image{width:150px}
+.welcome .tag {
+	position:absolute;
+	right:10px;
+	top:82%;
+	background-color:#000;
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 11px 11px 11px 11px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.45);
+    color: #FFFFFF;
+    padding: 0 5px 1px;
+}
+.welcome .imgcount{position:absolute; left:55px; top:55px; 
+	background-color:#000;
+	background: none repeat scroll 0 0 rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 7px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.45);
+    color: #FFFFFF;
+    padding: 5px;}
+
+.player{margin:0px; display:block}
+.clearfix{zoom:1}
+.clearfix:after{content:"";display:block;height:0;line-height:0;font-size:0;visibility:hidden;clear:both}
+.htag {border-radius:7px}
+.htag .hottab .tag-hd, .htag .hottab .hot-hd, .htag .hottab .active-hd, .htag .hottab .editor-hd {
+    color: #505050;
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 12px;
+}
+.htag .hottab .tag-hd {
+    padding-left: 22px;
+    text-align: left;
+}
+.htag .hottab .editor-hd {
+    padding-left: 9px;
+    text-align: center;
+}
+.htag .hottab .tag-row {
+    height: 40px;
+}
+.htag .hottab .tag-row.odd {
+    background: none repeat scroll 0 0 #EBF0F6;
+}
+
+.htag .hottab .tag-row.add {
+    background: none repeat scroll 0 0 #FFFFFF;
+}
+.htag .hottab .tag {
+    font-size: 16px;
+    padding-left: 22px;
+    width: 352px;
+}
+
+.htag .hottab .hot,.editor{
+	padding:10px;
+    text-align: center;
+}
+.htag .tag-row.odd .hot {
+    background: none repeat scroll 0 0 #F4F8F9;
+}
+.htag .tag-row.even .hot {
+    background: none repeat scroll 0 0 #FBFCFD;
+}
+.htag .hottab .hot-bar {
+    background: none repeat scroll 0 0 #6EC2F4;
+    border-radius: 2px 2px 2px 2px;
+    display: inline-block;
+    height: 8px;
+    margin-right: 4px;
+    overflow: hidden;
+    width: 8px;
+}
+
+.htag .hottab .editor-info {
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    margin-left: 9px;
+}
+
+.htag .hottab .tag, .htag .hottab .hot, .htag .hottab .active, .htag .hottab  {
+    border-bottom: 1px solid #D2D9DE;
+    border-right-color: #D2D9DE;
+    border-top: 1px solid #D2D9DE;
+}
+.htag {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+	margin-top:10px;
+    position: relative;
+}
+
+.hottab th{
+	padding:10px;
+}
+.htag .hottab .tag-hd {
+    padding-left: 22px;
+    text-align: left;
+}
+.state {
+    background: none repeat scroll 0 0 #DDE4E7;
+    border: 1px solid #FFFFFF;
+    border-radius: 3px 3px 3px 3px;
+    display: block;
+    font-size: 0;
+    height: 11px;
+    margin: 6px 0;
+}

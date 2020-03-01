@@ -1,0 +1,259 @@
+/* add  and userinfoscreen stylesheets */
+
+a, a:link, a:visited {
+    color: #999;
+    cursor: pointer;
+    text-decoration: none;
+}
+a:hover{
+	color: #999;
+text-decoration: none;
+}
+
+
+#main {float: left;padding:0px 0px 25px 25px;width: 600px;}
+#aside {float: left; margin-left:80px; margin-top:0px;width:180px;}
+.content {background: url(../add_content.png) repeat-y scroll center center #FFFFFF;padding: 20px 0px 0px 0px; margin:0px 20px 20px 20px;}
+h2#title {color: #2D4159;font-size: 32px;margin: 0 0 30px; font-weight:bold}
+h3.title {color: #5B6772;font-size: 24px;font-weight: normal;margin: 30px 0 5px;}
+h3.title span {color: #AAB5C1;font-size: 12px;margin-left: 5px;}
+#textarea {height: 300px;}
+#uploadpic { display: block; float: right; margin-top: -20px;}
+hr.separator {border-bottom: 1px solid #FEFFFE;border-top: 1px solid #E2E6E8;border-width: 1px 0;margin: 15px 0;}
+.aside-item select {border: 1px solid #BBBBBB; font-size: 14px; padding: 5px;}
+#post-to-select{ width: 153px;}
+#post-privacy-select { width: 168px;}
+#post-tag {  background:url(../comm/post_input.jpg) repeat-x left top #fff;   border: 1px solid #BBBBBB;   min-height: 120px;   overflow: hidden;   padding: 5px;   width: 160px;}
+#post-tag2 {  background: none repeat scroll 0 0 #FFFFFF;   border: 1px solid #BBBBBB;     overflow: hidden;   padding: 5px;   width: 160px;}
+#post-tag-input {   border: 0 none;   margin: 0;   outline: medium none;   padding: 0;   width: 150px;}
+#post-tag-list li, #recommand-tag-list li { background: none repeat scroll 0 0 #2C93D9; border-radius: 2px 2px 2px 2px; color: #CCC;
+    float: left;   height: 22px;   line-height: 22px;   margin: 0 5px 5px 0;   padding: 0 5px;}
+
+#post-tag-list li, #recommand-tag-list li a:hover{
+	 color:#F5F5F5;
+}
+
+#post-tag-list li a{
+color:#FFF;
+}
+#post-tag-list li .delete-tag-btn { color: #749440; padding-left: 5px;}
+#recommand-tag-holder h4 { color: #666666; font-size: 12px; padding-bottom: 5px;}
+#top-post-holder {line-height:15px}
+.clearfix { display: block;}
+.pb-tag-tip {
+    color: #999999;
+}
+.pb-side-opt {   color: #666666; padding-bottom:10px}
+.pb-side-opt label {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.pb-side-opt label input {
+    margin-right: 5px;
+    padding: 0;
+}
+.top-post-tip {
+    color: #999999;
+    padding-top: 5px;
+}
+
+.clear{clear:both}
+
+/*��ѡ���Բ˵�*/
+#mountchange{display:block; width:600px;clear:both}
+#mountchange ul.tabs {
+    height: 34px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#mountchange ul.tabs li a{outline:0}
+#mountchange ul.tabs li {
+	background-color: #DBDBDB;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    float: left;
+    font: bold 16px/36px Arial;
+    height: 36px;
+    margin: 0 15px 0 0;
+    padding: 0 20px;
+}
+#mountchange ul.tabs li.curr {
+	background-color: #EEEEEE;
+}
+
+
+/*en button*/
+#pb-action-holder {
+    margin: 30px 0 0;
+}
+#submit,#submit_baseinfo,#submit_chgpwd,#submit_music,#submit_product,#submit_image,#submit_video {float: right;height: 32px;line-height: 32px;margin-left: 15px;}
+
+.input-button, .blue-button {
+    background: url(../blue-button.png) repeat-x scroll 0 0 transparent;
+    border: 1px solid #006DAB;
+    border-radius: 4px 4px 4px 4px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: block;
+    font-size: 14px;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 20px;
+}
+.input-button,.gray-button {
+    background: url(../gray-button.png) repeat-x scroll 0 0 transparent;
+    border: 1px solid #787878;
+    border-radius: 4px 4px 4px 4px;
+    color: #333333;
+    cursor: pointer;
+    display: block;
+    font-size: 14px;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 20px;
+}
+.gray-button:hover {
+    background-position: 0 -36px;
+}
+
+.input-button:hover, .blue-button:hover {
+    background-position: 0 -36px;
+}
+
+#pb-action-holder { margin: 30px 0 0;}
+#pb-action-holder .pure-button {
+    margin-left: 10px;
+}
+#pb-action-holder #cancel { float: left; height: 32px; line-height: 32px; margin: 0;}
+#pb-action-holder #chgpwd { float: right; height: 32px; line-height: 32px; margin: 0;margin-left: 15px;}
+#preview, #draft,#addimg {float: right;height: 32px;line-height: 32px;margin-left: 15px;}
+#pb-submiting-tip,#loadings {
+    background: url(../small_loading.gif) no-repeat scroll left center transparent;
+    color: #666666;
+    float: right;
+    height: 38px;
+    line-height: 38px;
+    padding-left: 20px;
+}
+#pb-text-upload-pic {
+    display: block;
+    float: right;
+    margin-top: -23px;
+}
+#uploading {
+    background: url(../small_loading.gif) no-repeat scroll left center transparent;
+    color: #999999;
+    padding-left: 20px;
+}
+.pb-music-search-result ul {
+    padding: 5px 0;
+}
+
+
+
+.uploadBtn{
+	display:inline-block;
+	position:relative;
+	width:50px;
+	height:16px;
+	overflow:hidden;
+}
+.uploadBtn input{
+	position:absolute;
+	left:0px;
+
+	top:0;
+	width:100%;
+	height:100%;
+	cursor:pointer;
+opacity:0;-ms-filter:'alpha(opacity=0)';filter:alpha(opacity=0);
+}
+
+.testClassName {
+	background:transparent url(../edit_img.gif) no-repeat 16px 16px;
+	background-position:2px 3px;
+}
+
+#recommand-tag-list a{
+	color:#FFF;
+}
+#post-tag-list li  a{ padding-left:5px}
+
+
+.input{color:#2D4159; font-size:26px; line-height:1.6em; font-family:'Microsoft YaHei'; margin-bottom:2px; width: 600px; height:46px; background:url(../comm/post_input.jpg)  repeat-x top left; border:1px solid #999; padding:2px}
+
+/*ý���*/
+.globox{ margin-top:10px;}
+.globox th,td{padding:5px; font-size:14px;}
+.globox th{font-weight:bold; text-align:center; border-bottom:2px solid #E3E3E3}
+.alt-row{background-color:#EEE}
+
+
+/*��������*/
+#musicFrom,#musicUpload {display:block; background-color:#EEEEEE; padding:10px;}
+#musicList .list {margin:2px 0px;}
+#musicList .list input {width:220px; font-size:12px; line-height:18px; color:#999}
+#musicList .list img{width:130px; height:100px}
+#musicList .list .uri{width:250px;white-space: nowrap; float:left}
+#musicList .list .body{float:left}
+
+.musicurl{color:#666; font-size:12px;width:560px; height:24px; line-height:24px; background:url(../comm/post_input.jpg) repeat-x top left #FFFFFF; border:1px solid #999; padding:2px; margin-bottom:10px}
+#localMusic{ margin:10px 0px;}
+
+#musicList a,#musicList a:hover{color:#999}
+#musicUpload strong{ font-weight:bold}
+.notice{margin:10px 0px;}
+.notice li{list-style:inside; list-style-type:disc; color:#666}
+
+/*����ͼƬ*/
+.upimgBar{background-color:#EEEEEE}
+#divAddFiles{width:100px; float:left}
+#upimgText{width:480px; float:right; line-height:35px}
+#uploadArea{margin:20px 0px}
+#uploadArea div{ padding:15px; margin:10px 0px; background-color:#EEEEEE; position:relative}
+#uploadArea img{ float:left }
+#uploadArea textarea{ border: 1px solid #CCCCCC;line-height: 18px;margin: 0;width: 402px; height:80px; margin:10px 10px; color:#999}
+#uploadArea a.delete{background:url(../add/delete.gif) no-repeat; display:block; width:16px; height:16px; overflow:hidden; text-indent:9999em; position:absolute; right:10px; top:10px}
+#uploadArea a.delete:hover{ position:16px 16px; background-color:#CCC}
+#progressArea{background:#D4E1F2;border-top:1px solid #99BBE8;padding:3px;display:none;}
+#progressBar{position: relative;border:1px solid #6593CF;padding:1px;}
+#progress{height:16px;background:#EEEEEE url(../add/progressbg.gif);}
+#progressBar span{position: absolute;text-align: center;width:100%;line-height:16px;color:#396095;}
+
+#uploadArea  .list{ margin:10px 0px; border:1px solid #999; background-color:#EEEEEE}
+#uploadArea  .list textarea{border:1px solid #EEEEEE; padding:5px; overflow:visible}
+.hover{background-color:#F6F6F6}
+#listArea{overflow-x:hidden;overflow-y:auto;}
+#listBody .hover{background:#F0F0F0;}
+#listBody .select{background:#DFE8F6;}
+#listBody td{padding:5px;border-bottom:1px solid #EDEDED;}
+/*setting*/
+#upload_photo {padding-left:68px}
+
+
+
+
+#addMores{display:none; float:left}
+.delitem{text-align:right; margin:5px 0px;}
+.ipta{width:380px;font-size:14px; padding:5px; background: none repeat scroll 0 0 #FFFFFF; border: 1px solid #BBBBBB; margin-bottom:5px; color:#999; padding-right:5px}
+.iptb{width:150px;font-size:14px; padding:5px; background: none repeat scroll 0 0 #FFFFFF; border: 1px solid #BBBBBB; margin-bottom:5px; color:#999; margin-right:5px}
+/*�û�����*/
+h3.usettitle {color: #5B6772;font-size: 14px;font-weight: normal;margin: 20px 0 5px;}
+h3.usettitle span {color: #AAB5C1;font-size: 12px;margin-left: 5px;}
+.ipt {font-size:14px; padding:5px; background: none repeat scroll 0 0 #FFFFFF; border: 1px solid #BBBBBB;}
+form input[type='checkbox'] {
+	vertical-align::text-top;
+}
+.iptdomain{border:0px}
+.iptname{border:0px}
+#pwd_wrap{width:170px; clear:both; display:none}
+
+
+
+
+
+
+
+
