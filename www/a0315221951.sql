@@ -2290,7 +2290,7 @@ CREATE TABLE `th_member` (
 -- 导出表中的数据 `th_member`
 -- 
 
-INSERT INTO `th_member` VALUES (1, 1, 1, 'birthday10241120@qq.com', '07f15b5c8651b6c22ac3dfdb86773f0b', 'W7HRHh', 'wilee', 'wilee', '火星', 'wilee', '<p>知而获智，智达高远</p>', 139, 5, 22, '', 1331864207, 1352968160, '124.118.204.196', '61.135.169.80', 1, 1, 1);
+INSERT INTO `th_member` VALUES (1, 1, 1, 'xiongwilee@foxmail.com', '07f15b5c8651b6c22ac3dfdb86773f0b', 'W7HRHh', 'wilee', 'wilee', '火星', 'wilee', '<p>知而获智，智达高远</p>', 139, 5, 22, '', 1331864207, 1352968160, '124.118.204.196', '61.135.169.80', 1, 1, 1);
 INSERT INTO `th_member` VALUES (2, 0, 1, '373071372@qq.com', '04140d947dd4219541188fa9732da49d', 'sl6koe', 'xiongwilee', 'xiongwilee', '火星', 'xiongwilee', '知而获智，智达高远', 15, 0, 117, '', 1331866118, 1332067078, '124.118.204.196', '124.118.204.196', 1, 1, 1);
 INSERT INTO `th_member` VALUES (3, 0, 1, '992604703@qq.com', '5eafc6fc279a0a46d1211208f09e0681', '-VoP5Q', 'wileexiong', 'wileexiong', NULL, 'wileexiong', '', 2, 0, 29, '', 1331867391, 0, '124.118.204.196', '0', 1, 1, 1);
 INSERT INTO `th_member` VALUES (10, 0, 1, 'jinlongde@foxmail.com', 'baa2f1639a74de16f9e4b0967194160e', 'huQLj7', '小小白', '', '火星', NULL, '', 0, 0, 2, '', 1331902109, 1331902307, '123.147.249.240', '123.147.249.240', 1, 1, 1);

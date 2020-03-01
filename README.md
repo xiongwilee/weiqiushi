@@ -1,8 +1,8 @@
-# LAMP stack built with Docker Compose
+# 微糗事
 
-![Landing Page](https://preview.ibb.co/gOTa0y/LAMP_STACK.png)
+感谢：https://github.com/sprintcube/docker-compose-lamp/tree/5.4.x
 
-This is a basic LAMP stack environment built using Docker Compose. It consists following:
+
 
 * PHP 5.4
 * Apache 2.4
@@ -14,14 +14,11 @@ This is a basic LAMP stack environment built using Docker Compose. It consists f
 Clone this repository on your local computer. Run the `docker-compose up -d`.
 
 ```shell
-git clone https://github.com/sprintcube/docker-compose-lamp.git
-cd docker-compose-lamp/
-git fetch --all
-git checkout 5.4.x
+git clone https://github.com/xiongwilee/weiqiushi.git
+cd weiqiushi
 cp sample.env .env
 docker-compose up -d
 ```
-> Please make sure that you are using `5.4.x` branch.
 
 Your LAMP stack is now ready!! You can access it via `http://localhost`.
 
@@ -110,6 +107,3 @@ http://localhost:8080/
 username: root  
 password: tiger
 
-## Redis
-
-It comes with Redis. It runs on default port `6379`.

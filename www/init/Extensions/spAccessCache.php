@@ -131,7 +131,8 @@ class access_driver_xcache{
 class access_driver_db extends spModel{
 	public $table = 'access_cache';
 	public function get($name){
-		if(! $result = array_pop($this->find(array('cachename'=>$name),NULL,'cachevalue')) )return FALSE;
+    $cache_name = $this->find(array('cachename'=>$name),NULL,'cachevalue');
+		if(! $result = array_pop($cache_name) )return FALSE;
 		if( substr($result, 0, 10) < time() ){$this->del($name);return FALSE;}
 		return unserialize(substr($result, 10));
 	}
